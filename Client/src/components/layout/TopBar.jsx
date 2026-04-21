@@ -20,7 +20,7 @@ const TopBar = () => {
   return (
     <div className=' items-center py-2 px-6 md:px-12 lg:px-16 text-base gap-8 w-full flex justify-between bg-white border-b-2 border-gray-200 md:bg-transparent top-0 left-0 right-0'>
       {/* contact info */}
-      <div className=' flex gap-x-6  bg-white items-center '>
+      <div className=' flex gap-x-6  items-center '>
         {contactInfo.map((item, index) => (
           <div key={index} className='flex gap-x-2 text-gray-700 text-lg font-medium'>
             {item.icon}

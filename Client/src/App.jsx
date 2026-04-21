@@ -9,7 +9,9 @@ import Specialties from './pages/Specialties'
 const App = () => {
   return (
     <div>
+      <div className='bg-gray-100 hidden lg:flex'>
       <TopBar />
+      </div>
       <Navbar />
       <Home />
       <Services/>

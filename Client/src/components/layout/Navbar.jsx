@@ -3,6 +3,15 @@ import { CgLayoutGridSmall } from "react-icons/cg";
 import logo from '../../assets/logo.svg';
 import Wrapper from '../shared/Wrapper';
 const Navbar = () => {
+    const Menu = [
+        { name: 'Home', link: '#' },
+        { name: 'Doctors', link: '#' },
+        { name: 'Patients', link: '#' },
+        { name: 'Pharmacy', link: '#' },
+        { name: 'Pages', link: '#' },
+        { name: 'Blog', link: '#' },
+        { name: 'Admin', link: '#' },
+    ]
     return (
         <header className='w-full bg-white md:bg-transparent top-0 left-0 right-0'>
             <nav className=' h-24 flex items-center justify-between  bg-white shadow-md'>
@@ -15,7 +24,7 @@ const Navbar = () => {
                         </a>
                     </div>
                     {/* items */}
-                    <div>
+                    <div className='group relative text-gray-500 text-lg'>
                         <ul className='flex gap-x-7'>
                             <li className='text-gray-600 hover:text-gray-800 cursor-pointer transition-colors duration-300'>Home</li>
                             <li className='text-gray-600 hover:text-gray-800 cursor-pointer transition-colors duration-300'>About</li>
