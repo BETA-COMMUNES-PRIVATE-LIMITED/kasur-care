@@ -5,6 +5,8 @@ import Services from './pages/Services'
 import Doctors from './pages/Doctors'
 import TopBar from './components/layout/TopBar'
 import Specialties from './pages/Specialties'
+import SwipeToSlide from './pages/SwipeToSlide'
+// import SwipeToSlide from './pages/SwipeToSlide'
 
 const App = () => {
   return (
@@ -17,6 +19,7 @@ const App = () => {
       <Services/>
       <Specialties/>
       <Doctors/>
+      <SwipeToSlide/>
 
     </div>
 

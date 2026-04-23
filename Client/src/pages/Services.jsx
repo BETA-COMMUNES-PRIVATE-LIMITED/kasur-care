@@ -1,39 +1,66 @@
-import React from 'react'
-import Wrapper from '../components/shared/Wrapper'
-import { FcReadingEbook } from "react-icons/fc";
+import { LuNotebookPen } from "react-icons/lu";
+import { MdSupervisorAccount } from "react-icons/md";
+import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
+import { BsHearts } from "react-icons/bs";
+import { FaSuitcaseMedical } from "react-icons/fa6";
+import { GrTest } from "react-icons/gr";
+import { BiSolidHomeHeart } from "react-icons/bi";
+import { motion } from "motion/react";
+
 
 const Services = () => {
   const services = [
-    { icon: <FcReadingEbook size={40} className='bg-blue-400 rounded-full' />, title: 'Book Appoinment' },
-    { icon: <FcReadingEbook size={40}  className='bg-blue-700 rounded-full'/>, title: 'Talk to Doctor' },
-    { icon: <FcReadingEbook size={40}  className='bg-pink-500 rounded-full'/>, title: 'Hospitals & Clinics'},
-    { icon: <FcReadingEbook size={40}  className='bg-blue-500 rounded-full'/>, title: 'Health Care'},
-    { icon: <FcReadingEbook size={40}  className='bg-purple-700 rounded-full'/>, title: 'Medicine Delivery'},
-    { icon: <FcReadingEbook size={40}  className='bg-orange-500 rounded-full'/>, title: 'Lab Testing'},
-    { icon: <FcReadingEbook size={40}  className='bg-green-500 rounded-full'/>, title: 'Home Care'},
+    { icon: <LuNotebookPen size={20} />, title: 'Book Appoinment' },
+    { icon: <MdSupervisorAccount size={25} />, title: 'Talk to Doctor' },
+    { icon: <HiOutlineBuildingOffice2 size={25} />, title: 'Hospitals & Clinics' },
+    { icon: <BsHearts size={20} />, title: 'Health Care' },
+    { icon: <FaSuitcaseMedical size={20} />, title: 'Medicine Delivery' },
+    { icon: <GrTest size={20} />, title: 'Lab Testing' },
+    { icon: <BiSolidHomeHeart size={25} />, title: 'Home Care' },
+
   ];
+
   return (
-    <div>
-      <Wrapper>
-        <div className='bg-white/20 flex text-center justify-between items-center px-12 py-12 -translate-y-10 rounded-2xl shadow-2xl'>
-          {services.map((service, index) => (
-            <div key={index} className=' text-center flex flex-col items-center gap-y-2'>
-             <div className=' rounded-full flex items-center justify-center'>
-              {service.icon}
-              </div>
-              <h3 className='text-lg font-semibold mt-6'>{service.title}</h3>
-             
-              
+    <div className="relative -mt-10 z-20 px-4">
+      {/* Card Container */}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9 }}
+        viewport={{ once: true }}
+
+        className="bg-white rounded-2xl shadow-lg p-8 max-w-6xl mx-auto">
+
+        {/* Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-6 text-center">
+
+          {services.map((item, i) => (
+            <div key={i} className="flex flex-col items-center gap-2 group cursor-pointer">
+
+              {/* Icon Circle */}
+              <motion.div
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.4, ease: "linear" }}
+
+
+                className="w-14 h-14 flex items-center justify-center rounded-full bg-blue-100 group-hover:bg-blue-400 transition">
+                <span className="text-blue-600 group-hover:text-white text-xl">
+                  {item.icon}
+                </span>
+              </motion.div>
+
+              {/* Text */}
+              <p className="text-md mt-2 font-medium text-gray-700 group-hover:text-blue-600">
+                {item.title}
+              </p>
+
             </div>
           ))}
 
         </div>
-
-
-
-      </Wrapper>
+      </motion.div>
     </div>
-  )
-}
 
-export default Services
+  );
+}
+export default Services;
