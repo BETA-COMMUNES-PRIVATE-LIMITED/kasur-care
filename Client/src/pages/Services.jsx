@@ -41,8 +41,6 @@ const Services = () => {
               <motion.div
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.4, ease: "linear" }}
-
-
                 className="w-14 h-14 flex items-center justify-center rounded-full bg-blue-100 group-hover:bg-blue-400 transition">
                 <span className="text-blue-600 group-hover:text-white text-xl">
                   {item.icon}
@@ -50,9 +48,15 @@ const Services = () => {
               </motion.div>
 
               {/* Text */}
-              <p className="text-md mt-2 font-medium text-gray-700 group-hover:text-blue-600">
-                {item.title}
-              </p>
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9 }}
+                viewport={{ once: true }}>
+                <p className="text-md mt-2 font-medium text-gray-700 group-hover:text-blue-600">
+                  {item.title}
+                </p>
+              </motion.div>
 
             </div>
           ))}
