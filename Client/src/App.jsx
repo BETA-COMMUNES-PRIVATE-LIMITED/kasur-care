@@ -8,6 +8,9 @@ import Specialties from './pages/Specialties'
 import Text from './pages/Text'
 import Reason from './pages/Reason'
 import About from './pages/About'
+import Testimonials from './pages/Testimonials'
+import TrustPartner from './pages/TrustPartner'
+import  Quries from './pages/Quries'
 
 const App = () => {
   return (
@@ -23,6 +26,9 @@ const App = () => {
       <Text/>
       <Reason/>
       <About/>
+      <Testimonials/>
+      <TrustPartner/>
+      <Quries/>
      
 
     </div>
