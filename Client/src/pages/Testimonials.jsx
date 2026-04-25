@@ -41,7 +41,7 @@ const stats = [
 
 const TestimonialSection = () => {
   return (
-    <div className="bg-gradient-to-r from-blue-50 to-gray-100 py-16 px-4">
+    <div className="bg-linear-to-r from-blue-50 to-gray-100 py-16 px-4">
       <Wrapper>
 
       {/* Header */}
@@ -82,7 +82,7 @@ const TestimonialSection = () => {
                 className="w-10 h-10 rounded-full object-cover"
               />
               <div>
-                <p className="font-medium text-sm font-semibold">{item.name}</p>
+                <p className="font-medium text-sm">{item.name}</p>
                 <p className="text-xs text-gray-400">{item.location}</p>
               </div>
             </div>

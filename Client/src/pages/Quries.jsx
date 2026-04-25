@@ -96,42 +96,52 @@ const Quries = () => {
         </motion.div>
         {/* block */}
         <div className="p-6 md:p-8 rounded-2xl mt-12 bg-blue-400">
-  <div className="flex flex-col md:flex-row items-center gap-8">
+          <div className="flex flex-col md:flex-row items-center gap-8">
 
-    {/* LEFT SIDE */}
-    <div className="flex-1 text-center md:text-left">
-      
-      <div className="text-white">
-        <p className="text-sm md:text-base">
-          Working For Your Better Health.
-        </p>
+            {/* LEFT SIDE */}
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9 }}
+              viewport={{ once: true }} className="flex-1 text-center md:text-left">
 
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold mt-2">
-          Download the Doccure App Today!
-        </h1>
-      </div>
+              <div className="text-white">
+                <p className="text-sm md:text-base">
+                  Working For Your Better Health.
+                </p>
 
-      {/* Store Buttons */}
-      <div className="flex justify-center md:justify-start gap-4 mt-6 flex-wrap">
-        <img src={app2} alt="app store" className="h-10 sm:h-12 object-contain" />
-        <img src={app3} alt="play store" className="h-10 sm:h-12 object-contain" />
-      </div>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold mt-2">
+                  Download the Doccure App Today!
+                </h1>
+              </div>
 
-    </div>
+              {/* Store Buttons */}
+              <div className="flex justify-center md:justify-start gap-4 mt-8 flex-wrap">
+                <img src={app2} alt="app store" className="h-10 sm:h-12 object-contain" />
+                <img src={app3} alt="play store" className="h-10 sm:h-12 object-contain" />
+              </div>
 
-    {/* RIGHT SIDE */}
-    <div className="flex-1 flex justify-center">
-      <img
-        src={app}
-        alt="app preview"
-        className="w-60 sm:w-72 md:w-80 lg:w-[400px] object-contain"
-      />
-    </div>
+            </motion.div>
 
-  </div>
-</div>
-      </Wrapper>
-    </div>
+            {/* RIGHT SIDE */}
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9 }}
+              viewport={{ once: true }}
+
+              className="flex-1 flex justify-center">
+              <img
+                src={app}
+                alt="app preview"
+                className="w-60 sm:w-72 md:w-80 lg:w-100 object-contain"
+              />
+            </motion.div>
+
+          </div>
+        </div>
+      </Wrapper >
+    </div >
   );
 };
 

@@ -19,8 +19,8 @@ const Navbar = () => {
         { name: 'Admin' }
     ]
     return (
-        <header className='w-full bg-white md:bg-transparent top-0 left-0 right-0'>
-            <nav className=' h-18 flex items-center justify-between  bg-white shadow-md'>
+        <header className='w-full bg-white md:bg-transparent sticky z-50  top-0 left-0 right-0'>
+            <nav className=' h-18 flex items-center justify-between   bg-white shadow-md'>
 
                 <div className='flex justify-between items-center py-4 px-6 md:px-12 lg:px-16 text-base gap-8 w-full'>
                     {/* logo */}
@@ -43,6 +43,7 @@ const Navbar = () => {
                     <div>
                         <CgLayoutGridSmall size={20} className='w-12 h-12 hidden xl:flex rounded-full hover:animate-pulse  text-xs border border-gray-300 text-gray-500 hover:bg-blue-400 hover:text-white transition-colors duration-300 cursor-pointer  items-center justify-center' />
                     </div>
+                    
                     {/* for mobile menu */}
                     <div className='xl:hidden block cursor-pointer'>
                         {isMenuOpen ? (

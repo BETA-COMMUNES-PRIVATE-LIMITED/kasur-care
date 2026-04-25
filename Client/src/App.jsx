@@ -11,6 +11,8 @@ import About from './pages/About'
 import Testimonials from './pages/Testimonials'
 import TrustPartner from './pages/TrustPartner'
 import  Quries from './pages/Quries'
+import Blog from './pages/Blog'
+import Footer from './pages/Footer'
 
 const App = () => {
   return (
@@ -29,6 +31,8 @@ const App = () => {
       <Testimonials/>
       <TrustPartner/>
       <Quries/>
+      <Blog/>
+      <Footer/>
      
 
     </div>
