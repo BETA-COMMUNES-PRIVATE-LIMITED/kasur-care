@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div className='bg-linear-to-b from-blue-600 to-cyan-500   '>
       <Wrapper>
-        <div className='flex flex-col lg:flex-row items-center  text-center gap-10'>
+        <div className='flex flex-col lg:flex-row items-center  text-center gap-8'>
           {/* left side */}
 
 
