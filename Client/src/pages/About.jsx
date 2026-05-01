@@ -50,9 +50,9 @@ const About = () => {
             
               <img src={about} alt='' className='h-70 w-145 rounded-2xl mx-auto ' />
             
-            <div className='grid grid-cols-2 gap-6'>
-              <img src={about2} alt='' className='h-70 w-70 rounded-2xl ' />
-              <img src={about3} alt='' className='h-70 w-70 rounded-2xl' />
+            <div className='grid grid-cols-2 gap-x-4'>
+              <img src={about2} alt='' className='h-50 w-60 rounded-2xl mx-auto  ' />
+              <img src={about3} alt='' className='h-50 w-60 rounded-2xl mx-auto' />
             </div>
 
           </div>
