@@ -14,7 +14,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { FaHeart,FaStar ,FaMapMarkerAlt,FaRegClock,FaCalendarAlt  } from "react-icons/fa";
+import { FaHeart, FaStar, FaMapMarkerAlt, FaRegClock, FaCalendarAlt } from "react-icons/fa";
 
 const Doctors = () => {
   const DoctorData = [
@@ -74,15 +74,14 @@ const Doctors = () => {
 
           className="mt-10">
           <Swiper
-            spaceBetween={25}
-            navigation={false}
+            spaceBetween={20}
             loop={true}
-            speed={3000}
+            speed={800}
             autoplay={{
-              delay: 2000,
+              delay: 2500,
               disableOnInteraction: false,
             }}
-            modules={[Navigation, Autoplay]}
+            modules={[Autoplay]}
             breakpoints={{
               320: {
                 slidesPerView: 1,
@@ -101,76 +100,82 @@ const Doctors = () => {
               },
             }}
           >
-         {DoctorData.map((doc, index) => (
-          <SwiperSlide key={index}>
-            
-            {/* CARD */}
-            <div className="bg-white rounded-2xl shadow-md overflow-hidden relative group  cursor-pointer">
+            {DoctorData.map((doc, index) => (
+              <SwiperSlide key={index}>
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
 
-              {/* Image */}
-              <div className="relative">
-                <img
-                  src={doc.img}
-                  className="w-full h-60 object-cover"
-                  alt=""
-                />
+                  {/* CARD */}
+                  <div className="bg-white rounded-2xl shadow-md overflow-hidden relative group  cursor-pointer">
 
-                {/* Rating */}
-                <div className="absolute top-3 left-3 bg-orange-500 text-white text-xs px-2 py-1 rounded flex items-center gap-1">
-                  <FaStar /> {doc.rating}
-                </div>
+                    {/* Image */}
+                    <div className="relative">
+                      <img
+                        src={doc.img}
+                        className="w-full h-60 object-cover"
+                        alt=""
+                      />
 
-                {/* Heart */}
-                <div className="absolute top-3 right-3 bg-white p-2 rounded-full shadow">
-                  <FaHeart className="text-gray-400 hover:text-red-500 cursor-pointer" />
-                </div>
-              </div>
+                      {/* Rating */}
+                      <div className="absolute top-3 left-3 bg-orange-500 text-white text-xs px-2 py-1 rounded flex items-center gap-1">
+                        <FaStar /> {doc.rating}
+                      </div>
 
-              {/* Content */}
-              <div className="p-4">
+                      {/* Heart */}
+                      <div className="absolute top-3 right-3 bg-white p-2 rounded-full shadow">
+                        <FaHeart className="text-gray-400 hover:text-red-500 cursor-pointer" />
+                      </div>
+                    </div>
 
-                {/* Specialty + Availability */}
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm text-blue-600 font-medium border-l-2 border-blue-600 pl-2">
-                    {doc.specialty}
-                  </span>
+                    {/* Content */}
+                    <div className="p-4">
 
-                  <span className="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full">
-                    ● Available
-                  </span>
-                </div>
+                      {/* Specialty + Availability */}
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-sm text-blue-600 font-medium border-l-2 border-blue-600 pl-2">
+                          {doc.specialty}
+                        </span>
 
-                {/* Name */}
-                <h3 className="text-lg font-semibold">{doc.name}</h3>
+                        <span className="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full">
+                          ● Available
+                        </span>
+                      </div>
 
-                {/* Location + Time */}
-                <p className="text-sm text-gray-500 flex items-center gap-2 mt-1">
-                  <FaMapMarkerAlt /> {doc.location} • <FaRegClock /> {doc.time}
-                </p>
+                      {/* Name */}
+                      <h3 className="text-lg font-semibold">{doc.name}</h3>
 
-                {/* Fee */}
-                <div className="flex justify-between items-center mt-4">
-                  <div>
-                    <p className="text-sm text-gray-500">Consultation Fees</p>
-                    <p className="text-lg font-bold text-orange-500">{doc.fee}</p>
+                      {/* Location + Time */}
+                      <p className="text-sm text-gray-500 flex items-center gap-2 mt-1">
+                        <FaMapMarkerAlt /> {doc.location} • <FaRegClock /> {doc.time}
+                      </p>
+
+                      {/* Fee */}
+                      <div className="flex justify-between items-center mt-4">
+                        <div>
+                          <p className="text-sm text-gray-500">Consultation Fees</p>
+                          <p className="text-lg font-bold text-orange-500">{doc.fee}</p>
+                        </div>
+
+                        {/* Button */}
+                        <button className="bg-black text-white p-3 rounded-full hover:bg-blue-600 transition">
+                          <FaCalendarAlt />
+                        </button>
+                      </div>
+
+                    </div>
                   </div>
-
-                  {/* Button */}
-                  <button className="bg-black text-white p-3 rounded-full hover:bg-blue-600 transition">
-                    <FaCalendarAlt />
-                  </button>
-                </div>
-
-              </div>
-            </div>
-
-          </SwiperSlide>
-        ))}
+                </motion.div>
+              </SwiperSlide>
+            ))}
 
           </Swiper>
         </motion.div>
       </Wrapper>
-      
+
     </div>
   )
 }

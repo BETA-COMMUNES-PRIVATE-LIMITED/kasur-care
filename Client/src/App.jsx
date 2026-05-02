@@ -16,11 +16,12 @@ import Footer from './pages/Footer'
 
 const App = () => {
   return (
+
     <div>
-      <div className='bg-gray-100 hidden lg:flex'>
-      <TopBar />
+      <div className='bg-gray-100 sticky  z-50 hidden lg:flex'>
+      <TopBar />   
       </div>
-      <Navbar />
+      <Navbar />  
       <Home />
       <Services/>
       <Specialties/>
