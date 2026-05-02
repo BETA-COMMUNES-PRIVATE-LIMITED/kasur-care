@@ -4,6 +4,7 @@ import logo from '../../assets/logo.svg';
 import { IoChevronDown } from "react-icons/io5";
 import { FaEllipsisV } from "react-icons/fa";
 import MobileNav from './MobileNav';
+import SideBar from './SideBar';
 
 const Navbar = () => {
   const Menu = [
@@ -15,6 +16,7 @@ const Navbar = () => {
     { name: "Blog", path: '/blogs' },
     { name: "Admin", path: '/admin' },
   ];
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav>
@@ -37,25 +39,28 @@ const Navbar = () => {
           </ul>
           {/* 🔹 Right Side */}
           <div className=" items-center gap-4 hidden lg:flex">
-            <button className="bg-linear-to-l from-blue-600 to-cyan-500  text-white px-8 py-2 font-medium text-lg tracking-wider rounded-full cursor-pointer">
-              Sign Up
-            </button>
-
-            <button className="bg-black  text-white px-8 py-2 font-medium text-lg tracking-wider rounded-full cursor-pointer">
-              Register
-            </button>
+            <Link to="/signup">
+              <button className="bg-linear-to-l from-blue-600 to-cyan-500  text-white px-8 py-2 font-medium text-lg tracking-wider rounded-full cursor-pointer">
+                Sign Up
+              </button>
+            </Link>
+            <Link to="/register">
+              <button className="bg-black  text-white px-8 py-2 font-medium text-lg tracking-wider rounded-full cursor-pointer">
+                Register
+              </button>
+            </Link>
 
             {/* Three Dots */}
-            <button>
+            <button onClick={() => setIsOpen(true)}>
               <FaEllipsisV size={20} className="cursor-pointer hidden lg:flex text-gray-500" />
-
             </button>
+            <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
+
+          <MobileNav />
         </div>
- 
 
       </div>
-    
 
     </nav>
   )
