@@ -28,7 +28,7 @@ const TopBar = () => {
     ]
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className=' hidden lg:flex items-center py-2 px-6 lg:px-30 text-base gap-8 w-full justify-between bg-white border-b-2 border-gray-200  top-0 left-0 right-0'>
+        <div className='hidden lg:flex items-center py-2 px-6 lg:px-30 text-base gap-8 w-full justify-between bg-white border-b-2 border-gray-200  top-0 left-0 right-0'>
             {/* contact info */}
             <div className=' flex gap-x-6  items-center '>
                 {contactInfo.map((item, index) => {

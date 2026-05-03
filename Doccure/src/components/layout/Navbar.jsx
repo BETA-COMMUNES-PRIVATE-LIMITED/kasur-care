@@ -44,7 +44,7 @@ const Navbar = () => {
                 Sign Up
               </button>
             </Link>
-            <Link to="/register">
+            <Link to="/PatientRegister">
               <button className="bg-black  text-white px-8 py-2 font-medium text-lg tracking-wider rounded-full cursor-pointer">
                 Register
               </button>

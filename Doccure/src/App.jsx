@@ -5,6 +5,9 @@ import Signup from './pages/Auth/Signup'
 import Navbar from './components/layout/Navbar'
 import DoctorRegister from './pages/Auth/DoctorRegister'
 import PatientRegister from './pages/Auth/PatientRegister'
+import Doctors from './pages/Doctors'
+import About from './pages/About'
+import Blogs from './pages/Blogs'
 
 const App = () => {
   return (
@@ -15,6 +18,10 @@ const App = () => {
        <Route path="/signup" element={<Signup/>} />
        <Route path="/PatientRegister" element={<PatientRegister/>} />
         <Route path="/DoctorRegister" element={<DoctorRegister/>} />
+        <Route path='/doctors' element={<Doctors/>} />
+         <Route path='/about' element={<About/>} />
+          <Route path='/blogs' element={<Blogs/>} />
+        
     </Routes>
     </BrowserRouter>
   )

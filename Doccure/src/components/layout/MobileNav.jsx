@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import logo from '../../assets/logo.svg'
+import { Link } from "react-router-dom";
 import { BsChevronRight } from "react-icons/bs";
 import { LiaEnvelopeOpenTextSolid } from "react-icons/lia";
 import { PiPhoneCall } from "react-icons/pi";
@@ -85,13 +86,17 @@ const MobileNav = () => {
                     </div>
                     {/* button */}
                     <div className="mt-10 space-y-6 ">
-                        <button className="bg-linear-to-l from-blue-600 to-cyan-500  text-white px-16 py-2 font-medium text-lg tracking-wider rounded-full cursor-pointer">
-                            Sign Up
-                        </button>
+                        <Link to="/signup">
+              <button className="bg-linear-to-l from-blue-600 to-cyan-500  text-white px-16 py-2 font-medium text-lg tracking-wider rounded-full cursor-pointer">
+                Sign Up
+              </button>
+            </Link>
+            <Link to="/PatientRegister">
+              <button className="bg-black  mt-4 text-white px-16 py-2 font-medium text-lg tracking-wider rounded-full cursor-pointer">
+                Register
+              </button>
+            </Link>
 
-                        <button className="bg-black  text-white px-16 py-2 font-medium text-lg tracking-wider rounded-full cursor-pointer">
-                            Register
-                        </button>
                     </div>
                 </div>
             </div>
