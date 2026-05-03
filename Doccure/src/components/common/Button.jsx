@@ -14,12 +14,12 @@ const Button = ({
   const variants = {
     primary: "bg-linear-to-r from-blue-500 to-cyan-400 rounded-2xl text-white font-medium tracking-wider cursor-pointer ",
     outline: "border border-blue-600 text-blue-600 hover:bg-blue-50",
-    search: "text-white bg-blue-400 hover:bg-blue-600 rounded-full mr-2 tracking-wider",
+    search: "text-white bg-blue-400 hover:bg-blue-600 rounded-full mr-2 mb-1 tracking-wider",
   };
 
   //  Sizes
   const sizes = {
-    sm: "px-3 py-1 text-sm",
+    sm: "px-2 py-1 text-sm",
     md: "px-5 py-2 text-base",
     lg: "px-6 py-3 text-lg",
   };
