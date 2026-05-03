@@ -75,7 +75,7 @@ const Signup = () => {
           {/* Footer */}
           <p className="text-sm text-center mt-5 text-taupe-500  font-medium ">
             Already have an account?{" "}
-            <Link to="/register" className="text-blue-500  font-bold">
+            <Link to="/PatientRegister" className="text-blue-500  font-bold">
               Sign Up
             </Link>
           </p>
