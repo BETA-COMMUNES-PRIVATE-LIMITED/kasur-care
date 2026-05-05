@@ -9,10 +9,10 @@ const DoctorRegister = () => {
     e.preventDefault();
 
     // 👉 here you will later connect backend
-    console.log("Patient Registered");
+    console.log("Doctors Registered");
 
     // redirect after signup
-    navigate("/"); 
+    navigate("/doctors"); 
   };
 
   return (
@@ -61,12 +61,16 @@ const DoctorRegister = () => {
             />
 
             {/* Submit */}
+             <Link to="/doctors" className="text-blue-500 font-semibold">
+            
+            
             <button
               type="submit"
               className="w-full bg-linear-to-r from-blue-600 to-cyan-500 text-white py-3 rounded-full font-medium"
             >
               Sign Up
             </button>
+            </Link>
           </form>
 
           {/* Divider */}

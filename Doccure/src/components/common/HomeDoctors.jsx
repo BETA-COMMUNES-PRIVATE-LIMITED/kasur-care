@@ -1,14 +1,19 @@
 import React from 'react'
 
-import Button from '../components/common/Button'
+import Button from './Button';
 import { motion } from "motion/react"
-import doc01 from '../assets/doc01.webp';
-import doc02 from '../assets/doc02.jpg';
-import doc03 from '../assets/doc03.webp';
-import doc04 from '../assets/doc04.jpg';
-import doc05 from '../assets/doc05.jpg'
-import Text from '../components/common/Text';
-import Reason from '../components/common/Reason';
+// import doc01 from '../assets/doc01.webp';
+import doc01 from '../../assets/doc01.webp'
+// import doc02 from '../assets/doc02.jpg';
+import doc02 from '../../assets/doc02.jpg';
+// import doc03 from '../assets/doc03.webp';
+import doc03 from '../../assets/doc03.webp';
+// import doc04 from '../assets/doc04.jpg';
+import doc04 from '../../assets/doc04.jpg'
+// import doc05 from '../assets/doc05.jpg'
+import doc05 from '../../assets/doc05.jpg'
+import Text from './Text';
+import Reason from './Reason';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -18,7 +23,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { FaHeart, FaStar, FaMapMarkerAlt, FaRegClock, FaCalendarAlt } from "react-icons/fa";
 
-const Doctors = () => {
+const HomeDoctors = () => {
   const DoctorData = [
     {
       img: doc01, specialty: 'Psycologist', name: 'Dr Nicholas Tello', location: "Winona, MS",
@@ -190,4 +195,4 @@ const Doctors = () => {
   )
 }
 
-export default Doctors
+export default HomeDoctors

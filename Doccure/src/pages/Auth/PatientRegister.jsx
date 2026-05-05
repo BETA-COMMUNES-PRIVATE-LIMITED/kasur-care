@@ -12,7 +12,7 @@ const PatientRegister = () => {
     console.log("Patient Registered");
 
     // redirect after signup
-    navigate("/"); 
+    navigate("/patients"); 
   };
 
   return (
@@ -61,12 +61,17 @@ const PatientRegister = () => {
             />
 
             {/* Submit */}
+             <Link to="/patients" className="text-blue-500 font-semibold">
+            
+            
+
             <button
               type="submit"
               className="w-full bg-linear-to-r from-blue-600 to-cyan-500 text-white py-3 rounded-full font-medium"
             >
               Sign Up
             </button>
+            </Link>
           </form>
 
           {/* Divider */}

@@ -4,7 +4,7 @@ import Navbar from '../components/layout/Navbar'
 import Hero from '../components/common/Hero'
 import Services from '../components/common/Services'
 import Specialities from '../components/common/Specialities'
-import Doctors from './Doctors'
+import HomeDoctors from  '../components/common/HomeDoctors'
 import About from './About'
 import Testimonial from '../components/common/Testimonial'
 import TrustPartner from '../components/common/TrustPartner'
@@ -16,12 +16,12 @@ import Footer from '../components/layout/Footer'
 const Home = () => {
   return (
    <>
-   <TopBar/>
-   <Navbar/>
+   {/* <TopBar/> */}
+   {/* <Navbar/> */}
    <Hero/>
    <Services/>
    <Specialities/>
-   <Doctors/>
+   <HomeDoctors/>
    <About/>
    <Testimonial/>
    <TrustPartner/>
