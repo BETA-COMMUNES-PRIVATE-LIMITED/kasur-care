@@ -36,7 +36,7 @@ const Doctors = () => {
  <div className='flex flex-col lg:flex-row gap-6'>
 
   {/* 🧑‍⚕️ Sidebar */}
-  <div className='w-full lg:w-1/4'>
+  <div className='w-full lg:w-1/4"'>
     <DoctorSidebar />
   </div>
 
@@ -44,7 +44,7 @@ const Doctors = () => {
   <div className='w-full lg:w-3/4 flex flex-col gap-6'>
 
     {/* 🔝 Top Section */}
-    <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"'>
       <div className='lg:col-span-1'>
         <AppointmentItems />
       </div>
