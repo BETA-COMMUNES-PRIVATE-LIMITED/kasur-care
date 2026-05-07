@@ -10,7 +10,7 @@ const faqData = [
   },
   {
     question:
-      "Can i make an Appointment Online with White Plains Hospital Kendi?",
+      "Can i make an Appointment Online?",
     answer:
       "Yes, you can easily make appointments online through our platform.",
   },
