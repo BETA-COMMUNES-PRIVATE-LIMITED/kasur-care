@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Plus, Minus, Smile } from "lucide-react";
+import { motion } from "motion/react"
 
 const faqData = [
   {
@@ -40,7 +41,7 @@ export default function FAQSection() {
   return (
     <div className="bg-white py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Heading */}
         <div className="text-center mb-16">
           <p className="text-blue-600 font-semibold mb-2">
@@ -54,10 +55,17 @@ export default function FAQSection() {
 
         {/* Main Layout */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          
+
           {/* Left Image Section */}
-          <div className="relative">
-            
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+
+
             {/* Border Boxes */}
             <div className="absolute -top-6.25 left-8 w-full h-full border border-gray-200"></div>
             <div className="absolute -top-3 left-4 w-full h-full border border-gray-200"></div>
@@ -73,7 +81,7 @@ export default function FAQSection() {
 
             {/* Floating Card */}
             <div className="absolute -bottom-7.5 left-1/2 -translate-x-1/2 bg-white shadow-xl rounded-2xl px-8 py-4 flex items-center gap-4 z-20">
-              
+
               <div className="w-14 h-14 rounded-full bg-yellow-100 flex items-center justify-center">
                 <Smile size={32} className="text-yellow-500" />
               </div>
@@ -88,16 +96,20 @@ export default function FAQSection() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* FAQ Section */}
-          <div className="space-y-5">
+          <motion.div initial={{ opacity: 0, x: 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-5">
             {faqData.map((faq, index) => (
               <div
                 key={index}
                 className="bg-white shadow-lg border border-gray-200 rounded-xl overflow-hidden"
               >
-                
+
                 {/* Question */}
                 <button
                   onClick={() => toggleFAQ(index)}
@@ -126,7 +138,7 @@ export default function FAQSection() {
                 )}
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

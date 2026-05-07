@@ -1,5 +1,6 @@
 import React from "react";
 import { MapPin, Star } from "lucide-react";
+import { motion } from "motion/react"
 
 const doctors = [
   {
@@ -56,7 +57,7 @@ export default function BestDoctors() {
   return (
     <div className="bg-white min-h-screen py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Heading */}
         <div className="text-center mb-14">
           <h2 className="text-5xl md:text-4xl font-semibold">
@@ -65,7 +66,14 @@ export default function BestDoctors() {
         </div>
 
         {/* Doctors Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+
+
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
           {doctors.map((doctor) => (
             <div
               key={doctor.id}
@@ -87,7 +95,7 @@ export default function BestDoctors() {
 
               {/* Content */}
               <div className="p-5">
-                
+
                 {/* Name + Rating */}
                 <div className="flex items-start justify-between gap-3">
                   <div>
@@ -115,7 +123,7 @@ export default function BestDoctors() {
 
                 {/* Bottom */}
                 <div className="flex items-center justify-between">
-                  
+
                   {/* Location */}
                   <div className="flex items-center gap-2 text-gray-500 text-sm">
                     <MapPin size={15} />
@@ -124,11 +132,10 @@ export default function BestDoctors() {
 
                   {/* Status */}
                   <div
-                    className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      doctor.status === "Available"
-                        ? "bg-green-100 text-green-600"
-                        : "bg-red-100 text-red-500"
-                    }`}
+                    className={`px-3 py-1 rounded-full text-xs font-medium ${doctor.status === "Available"
+                      ? "bg-green-100 text-green-600"
+                      : "bg-red-100 text-red-500"
+                      }`}
                   >
                     {doctor.status}
                   </div>
@@ -136,7 +143,7 @@ export default function BestDoctors() {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

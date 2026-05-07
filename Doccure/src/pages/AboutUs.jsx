@@ -5,6 +5,7 @@ import {
 import { Link } from 'react-router-dom'
 import { FaHome } from "react-icons/fa";
 import { RiArrowRightDoubleLine } from "react-icons/ri";
+import { motion } from "motion/react"
 
 import doc01 from "../assets/doc01.webp";
 import doc02 from "../assets/doc02.jpg";
@@ -19,14 +20,14 @@ const AboutUs = () => {
     <div className="bg-[#f9fbff] min-h-screen">
 
       {/* 🔹 Hero Section */}
-       <div className='bg-blue-100 py-10'>
+      <div className='bg-blue-100 py-10'>
         <div className='flex gap-2 justify-center items-center'>
           <Link to={'/'}>
             <span className='text-blue-400 text-2xl'><FaHome /></span>
           </Link>
           <span className='text-2xl text-gray-600'><RiArrowRightDoubleLine /></span>
           <h2 className='text-gray-600 font-medium'>About Us</h2>
-        
+
         </div>
 
         <div className='text-center mt-4'>
@@ -40,7 +41,13 @@ const AboutUs = () => {
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
 
           {/* LEFT SIDE IMAGES */}
-          <div className="grid grid-cols-2 gap-5">
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 gap-5"
+          >
 
             {/* Left Column */}
             <div className="flex flex-col gap-5">
@@ -80,10 +87,16 @@ const AboutUs = () => {
 
             </div>
 
-          </div>
+          </motion.div>
 
           {/* RIGHT SIDE CONTENT */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+
+          >
 
             <p className="text-blue-500 font-medium mb-2">
               About Our Company
@@ -133,23 +146,23 @@ const AboutUs = () => {
 
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
 
       </div>
-<div>
-    <ChooseUs/>
-</div>
-<div>
-    <BestDoctors/>
-</div>
-<div>
-    <Testimon/>
-</div>
-<div>
-    <FAQSection/>
-</div>
+      <div>
+        <ChooseUs />
+      </div>
+      <div>
+        <BestDoctors />
+      </div>
+      <div>
+        <Testimon />
+      </div>
+      <div>
+        <FAQSection />
+      </div>
     </div>
   );
 };

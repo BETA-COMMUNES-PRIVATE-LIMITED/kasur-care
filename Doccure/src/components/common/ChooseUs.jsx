@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react"
 import {
   UserRound,
   Clock3,
@@ -30,16 +31,22 @@ const services = [
   },
 ];
 
-const ChooseUs=() => {
+const ChooseUs = () => {
   return (
     <div className="bg-[#f5f7fb] min-h-screen py-14 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="items-center  text-center pb-8">
-            <h1 className="text-3xl md:text-4xl font-semibold  ">Why Choose Us</h1>
+          <h1 className="text-3xl md:text-4xl font-semibold  ">Why Choose Us</h1>
         </div>
-        
+
         {/* Services Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((item, index) => (
             <div
               key={index}
@@ -61,12 +68,12 @@ const ChooseUs=() => {
               </p>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Bottom Banner */}
         <div className="mt-14 bg-blue-600 rounded-3xl overflow-hidden relative">
           <div className="grid lg:grid-cols-2 items-center">
-            
+
             {/* Left Content */}
             <div className="p-10 lg:p-16 text-white z-10">
               <h2 className="text-3xl md:text-4xl font-semibold leading-tight mb-6">
@@ -85,7 +92,7 @@ const ChooseUs=() => {
 
             {/* Right Image */}
             <div className="relative flex justify-center items-end h-full">
-              
+
               {/* Circle Background */}
               <div className="absolute w-112.5 h-112.5 bg-blue-400 rounded-full -right-30 top-10 opacity-40"></div>
 
