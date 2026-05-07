@@ -40,7 +40,7 @@ const BookAppointments = () => {
         +
       </button>
     </div>
-     <div className="bg-white rounded-xl shadow-sm p-4">
+     <div className="bg-white rounded-xl shadow-lg p-4">
       
       {/* Header */}
       <div className="flex justify-between items-center mb-4">

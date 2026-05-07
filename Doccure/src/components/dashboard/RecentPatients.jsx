@@ -54,7 +54,7 @@ const patients = [
 
 const RecentPatients = () => {
   return (
- <div className="bg-white rounded-xl shadow-sm p-4">
+ <div className="bg-white rounded-xl border border-gray-300 shadow-sm p-4">
       
       {/* Header */}
       <div className="flex justify-between items-center mb-4">

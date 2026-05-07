@@ -1,107 +1,237 @@
 import React, { useState } from "react";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
-import logo from '../../assets/logo.svg'
+import { IoChevronDown } from "react-icons/io5";
+import logo from '../../assets/logo.svg';
 import { Link } from "react-router-dom";
-import { BsChevronRight } from "react-icons/bs";
 import { LiaEnvelopeOpenTextSolid } from "react-icons/lia";
 import { PiPhoneCall } from "react-icons/pi";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
 
 const MobileNav = () => {
-    const Menu = [
-        { name: "Home" },
-        { name: "Doctors" },
-        { name: "Patients" },
-        { name: "Pharmacy" },
-        { name: "Pages" },
-        { name: "Blog" },
-        { name: "Admin" },
-    ];
 
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const Menu = [
+    {
+      name: "Home",
+      path: "/",
+    },
 
-    return (
-        <>
-            {/* 🔹 Toggle Button */}
-            <div className="lg:hidden cursor-pointer">
-                {isMenuOpen ? (
-                    <RxCross2 size={28} onClick={() => setIsMenuOpen(false)} />
-                ) : (
-                    <RxHamburgerMenu size={28} onClick={() => setIsMenuOpen(true)} />
-                )}
-            </div>
+    {
+      name: "Doctors",
+      path: "/doctors",
+      subMenu: [
+        { name: "Doctor Details", path: "/doctor-details" },
+        { name: "Doctor Dashboard", path: "/doctordashboard" },
+        { name: "Book Appointment", path: "/book-appointment" },
+      ],
+    },
 
-            {/* 🔹 Mobile Sidebar */}
-            <div
-                className={`fixed top-0 left-0 h-screen w-72 bg-white shadow-lg z-50 transform transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
-                    }`}
-            >
+    {
+      name: "Patients",
+      path: "/patients",
+      subMenu: [
+        { name: "Patient Dashboard", path: "/patientdashboard" },
+        { name: "Patient Profile", path: "/patient-profile" },
+      ],
+    },
 
-                {/* Header */}
-                <div className="flex justify-between items-center p-3 border-b border-gray-300">
-                    <img src={logo} alt="logo" className="w-30" />
+    {
+      name: "Pharmacy",
+      path: "/pharmacy",
+    },
+
+    {
+      name: "Pages",
+      path: "/pages",
+      subMenu: [
+        { name: "About Us", path: "/about" },
+         { name: "Contact Us", path: "/contact" },
+        { name: "Services", path: "/services" },
+        { name: "FAQ", path: "/faq" },
+      ],
+    },
+
+    {
+      name: "Blog",
+      path: "/blogs",
+    },
+
+    {
+      name: "Admin",
+      path: "/admin",
+    },
+  ];
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+
+  const toggleDropdown = (index) => {
+    setOpenDropdown(openDropdown === index ? null : index);
+  };
+
+  return (
+    <>
+      {/* 🔹 Toggle Button */}
+      <div className="lg:hidden cursor-pointer">
+        {isMenuOpen ? (
+          <RxCross2
+            size={28}
+            onClick={() => setIsMenuOpen(false)}
+          />
+        ) : (
+          <RxHamburgerMenu
+            size={28}
+            onClick={() => setIsMenuOpen(true)}
+          />
+        )}
+      </div>
+
+      {/* 🔹 Mobile Sidebar */}
+      <div
+        className={`fixed top-0 left-0 h-screen w-72 bg-white shadow-lg z-50 transform transition-transform duration-300 overflow-y-auto ${
+          isMenuOpen
+            ? "translate-x-0"
+            : "-translate-x-full"
+        }`}
+      >
+
+        {/* Header */}
+        <div className="flex justify-between items-center p-4 border-b border-gray-300">
+          <img src={logo} alt="logo" className="w-28" />
+
+          <RxCross2
+            size={26}
+            className="cursor-pointer"
+            onClick={() => setIsMenuOpen(false)}
+          />
+        </div>
+
+        {/* Menu */}
+        <div className="p-4">
+
+          <ul className="flex flex-col gap-2">
+
+            {Menu.map((item, index) => (
+
+              <li
+                key={index}
+                className="border-b border-gray-200 pb-2"
+              >
+
+                {/* Main Menu */}
+                <div className="flex items-center justify-between">
+
+                  <Link
+                    to={item.path}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="py-2 text-gray-700 font-medium hover:text-blue-500 transition"
+                  >
+                    {item.name}
+                  </Link>
+
+                  {/* Dropdown Button */}
+                  {item.subMenu && (
+                    <button
+                      onClick={() => toggleDropdown(index)}
+                    >
+                      <IoChevronDown
+                        size={18}
+                        className={`transition-transform duration-300 ${
+                          openDropdown === index
+                            ? "rotate-180"
+                            : ""
+                        }`}
+                      />
+                    </button>
+                  )}
 
                 </div>
 
-                {/* Menu */}
-                <div className="overflow-y-auto h-[calc(100%-60px)] p-4">
-                    <ul className="flex flex-col gap-2">
-                        {Menu.map((item, index) => (
-                            <li
-                                key={index}
-                                className="flex justify-between items-center py-3 px-2 border-b border-gray-300 cursor-pointer hover:text-blue-500"
-                            >
-                                {item.name}
-                                <BsChevronRight size={15} />
-                            </li>
-                        ))}
-                    </ul>
-                    {/* Contact */}
-                    <div className="mt-6 border-b border-gray-300 pb-4">
-                        <h1 className="font-semibold">Contact Information</h1>
+                {/* Submenu */}
+                {item.subMenu && openDropdown === index && (
+                  <ul className="ml-4 mt-2 flex flex-col gap-2">
 
-                        <div className="flex gap-2 mt-3">
-                            <LiaEnvelopeOpenTextSolid size={20} />
-                            <p className="text-sm text-gray-500">
-                                info@example.com
-                            </p>
-                        </div>
+                    {item.subMenu.map((subItem, subIndex) => (
 
-                        <div className="flex gap-2 mt-3">
-                            <PiPhoneCall size={20} />
-                            <p className="text-sm text-gray-500">
-                                +1 24565 89856
-                            </p>
-                        </div>
-                    </div>
-                    {/* Social */}
-                    <div className="mt-4">
-                        <h1 className="font-semibold">Follow Us</h1>
-                        <div className="flex gap-3 mt-3 cursor-pointer">
-                            <FaFacebookF />
-                            <FaTwitter />
-                            <FaInstagram />
-                            <FaLinkedinIn />
-                        </div>
-                    </div>
-                    {/* button */}
-                    <div className="mt-10 space-y-6 ">
-                        <Link to="/signup">
-              <button className="bg-linear-to-l from-blue-600 to-cyan-500  text-white px-16 py-2 font-medium text-lg tracking-wider rounded-full cursor-pointer">
+                      <li key={subIndex}>
+                        <Link
+                          to={subItem.path}
+                          onClick={() => setIsMenuOpen(false)}
+                          className="block text-sm text-gray-500 hover:text-blue-500 transition"
+                        >
+                          {subItem.name}
+                        </Link>
+                      </li>
+
+                    ))}
+
+                  </ul>
+                )}
+
+              </li>
+
+            ))}
+
+          </ul>
+
+          {/* Contact */}
+          <div className="mt-6 border-b border-gray-300 pb-4">
+            <h1 className="font-semibold">
+              Contact Information
+            </h1>
+
+            <div className="flex gap-2 mt-3">
+              <LiaEnvelopeOpenTextSolid size={20} />
+              <p className="text-sm text-gray-500">
+                info@example.com
+              </p>
+            </div>
+
+            <div className="flex gap-2 mt-3">
+              <PiPhoneCall size={20} />
+              <p className="text-sm text-gray-500">
+                +1 24565 89856
+              </p>
+            </div>
+          </div>
+
+          {/* Social */}
+          <div className="mt-4">
+            <h1 className="font-semibold">Follow Us</h1>
+
+            <div className="flex gap-3 mt-3 cursor-pointer">
+              <FaFacebookF />
+              <FaTwitter />
+              <FaInstagram />
+              <FaLinkedinIn />
+            </div>
+          </div>
+
+          {/* Buttons */}
+          <div className="mt-8 space-y-4">
+
+            <Link to="/signup">
+              <button className="w-full bg-linear-to-l mt-2 cursor-pointer from-blue-600 to-cyan-500 text-white py-3 rounded-full font-medium">
                 Sign Up
               </button>
             </Link>
+
             <Link to="/PatientRegister">
-              <button className="bg-black  mt-4 text-white px-16 py-2 font-medium text-lg tracking-wider rounded-full cursor-pointer">
+              <button className="w-full bg-black text-white mt-6 cursor-pointer py-3 rounded-full font-medium">
                 Register
               </button>
             </Link>
 
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+          </div>
+
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default MobileNav;

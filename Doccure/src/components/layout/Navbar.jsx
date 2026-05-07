@@ -9,10 +9,39 @@ import SideBar from './SideBar';
 const Navbar = () => {
   const Menu = [
     { name: "Home", path: '/' },
-    { name: "Doctors", path: '/doctors' },
-    { name: "Patients", path: '/patients' },
+
+    {
+      name: "Doctors",
+      path: '/doctors',
+      subMenu: [
+        { name: "Doctor Details", path: "/doctor-details" },
+        { name: "Doctor Dashboard", path: "/doctordashboard" },
+        { name: "Book Appointment", path: "/book-appointment" },
+      ],
+    },
+
+    {
+      name: "Patients",
+      path: '/patients',
+      subMenu: [
+        { name: "Patient Dashboard", path: "/patientdashboard" },
+        { name: "Patient Profile", path: "/patient-profile" },
+      ],
+    },
+
     { name: "Pharmacy", path: '/pharmacy' },
-    { name: "Pages", path: '/pages' },
+
+    {
+      name: "Pages",
+      path: '/pages',
+      subMenu: [
+        { name: "About Us", path: "/about" },
+        { name: "Contact Us", path: "/contact" },
+        { name: "Services", path: "/services" },
+        { name: "FAQ", path: "/faq" },
+      ],
+    },
+
     { name: "Blog", path: '/blogs' },
     { name: "Admin", path: '/admin' },
   ];
@@ -30,10 +59,31 @@ const Navbar = () => {
             {Menu.map((item, index) => (
               <li
                 key={index}
-                className="flex items-center gap-1 text-gray-700  text-md font-medium cursor-pointer hover:text-blue-500 transition"
+                className="relative group flex items-center gap-1 text-gray-700 text-md font-medium cursor-pointer hover:text-blue-500 transition"
               >
-                <Link to={item.path}>{item.name}</Link>
-                <IoChevronDown size={16} />
+                {/* Main Menu Link */}
+                <Link to={item.path} className="flex items-center gap-1">
+                  {item.name}
+
+                  {/* Show dropdown icon only if submenu exists */}
+                  {item.subMenu && <IoChevronDown size={16} />}
+                </Link>
+
+                {/* Dropdown Menu */}
+                {item.subMenu && (
+                  <ul className="absolute top-8 left-0 hidden group-hover:block bg-white shadow-lg rounded-lg w-52 py-2 z-50">
+                    {item.subMenu.map((subItem, subIndex) => (
+                      <li key={subIndex}>
+                        <Link
+                          to={subItem.path}
+                          className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500 transition"
+                        >
+                          {subItem.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>

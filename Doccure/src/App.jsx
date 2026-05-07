@@ -5,12 +5,14 @@ import Signup from './pages/Auth/Signup'
 import Navbar from './components/layout/Navbar'
 import DoctorRegister from './pages/Auth/DoctorRegister'
 import PatientRegister from './pages/Auth/PatientRegister'
-// import HomeDoctors from './components/common/HomeDoctors'
-import Doctors from './pages/Dashboard/Doctors'
-import Patients from './pages/Dashboard/Patients'
-import About from './pages/About'
+import Doctors from './pages/Dashboard/DoctorDashboard'
+import DoctorDashboard from './pages/Dashboard/DoctorDashboard'
+import PatientDashboard from './pages/Dashboard/PatientDashboard'
+
 import Blogs from './pages/Blogs'
 import TopBar from './components/layout/TopBar'
+import AboutUs from './pages/AboutUs'
+import ContactUs from './pages/ContactUs'
 
 const App = () => {
   return (
@@ -24,9 +26,10 @@ const App = () => {
        <Route path="/signup" element={<Signup/>} />
        <Route path="/PatientRegister" element={<PatientRegister/>} />
         <Route path="/DoctorRegister" element={<DoctorRegister/>} />
-        <Route path='/patients' element={<Patients/>} />
-        <Route path='/doctors' element={<Doctors/>}/>
-         <Route path='/about' element={<About/>} />
+        <Route path='/patientdashboard' element={<PatientDashboard/>} />
+        <Route path='/doctordashboard' element={<DoctorDashboard/>}/>
+         <Route path='/about' element={<AboutUs/>} />
+          <Route path='/contact' element={<ContactUs/>} />
           <Route path='/blogs' element={<Blogs/>} />
         
     </Routes>

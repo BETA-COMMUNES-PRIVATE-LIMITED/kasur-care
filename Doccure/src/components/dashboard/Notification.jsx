@@ -36,7 +36,7 @@ const notifications = [
 
 const Notification = () => {
   return (
-    <div className="bg-white rounded-xl shadow-sm p-4">
+    <div className="bg-white rounded-xl shadow-sm p-4 border border-gray-300">
       
       {/* Header */}
       <div className="flex justify-between items-center mb-4">

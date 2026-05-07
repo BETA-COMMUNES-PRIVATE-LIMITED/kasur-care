@@ -13,7 +13,7 @@ import Notification from '../../components/dashboard/Notification';
 const Doctors = () => {
   return (
     <div>
-     {/* 🔵 Top Header */}
+     {/*  Top Header */}
       <div className='bg-blue-100 py-10'>
         <div className='flex gap-2 justify-center items-center'>
           <Link to={'/'}>
@@ -33,41 +33,48 @@ const Doctors = () => {
     
     <div className='py-10 px-4 md:px-8 lg:px-30'>
   
- <div className='flex flex-col lg:flex-row gap-6'>
 
-  {/* 🧑‍⚕️ Sidebar */}
-  <div className='w-full lg:w-1/4"'>
-    <DoctorSidebar />
-  </div>
 
-  {/* 👉 Right Side */}
-  <div className='w-full lg:w-3/4 flex flex-col gap-6'>
+  <div className='flex flex-col xl:flex-row gap-6'>
 
-    {/* 🔝 Top Section */}
-    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"'>
-      <div className='lg:col-span-1'>
-        <AppointmentItems />
+    {/* 🧑‍⚕️ Sidebar */}
+    <div className='w-full xl:w-70 shrink-0'>
+      <DoctorSidebar />
+    </div>
+
+    {/* 👉 Right Side */}
+    <div className='flex-1 flex flex-col gap-6'>
+
+      {/* 🔝 Top Section */}
+      <div className='grid grid-cols-1 lg:grid-cols-3 gap-6'>
+
+        {/* Left Card */}
+        <div className='lg:col-span-1'>
+          <AppointmentItems />
+        </div>
+
+        {/* Right Card */}
+        <div className='lg:col-span-2'>
+          <AppointmentCards />
+        </div>
+
       </div>
 
-      <div className='lg:col-span-2'>
-        <AppointmentCards />
+      {/* 🔽 Middle Section */}
+      <div className='grid grid-cols-1 xl:grid-cols-2 gap-6'>
+        <WeeklyOverview />
+        <Upcoming />
       </div>
-    </div>
 
-    {/* 🔽 Middle Section */}
-    <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-      <WeeklyOverview />
-      <Upcoming />
-    </div>
+      {/* 🔻 Bottom Section */}
+      <div className='grid grid-cols-1 xl:grid-cols-2 gap-6'>
+        <RecentPatients />
+        <Notification />
+      </div>
 
-    {/* 🔻 Bottom Section */}
-    <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-      <RecentPatients />
-      <Notification />
     </div>
 
   </div>
-</div>
 
 </div>
 

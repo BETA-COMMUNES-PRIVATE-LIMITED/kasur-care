@@ -11,7 +11,7 @@ import Notification from '../../components/dashboard/Notification';
 import Upcoming from '../../components/dashboard/Upcoming';
 import Reports from '../../components/dashboard/Reports';
 
-const Patients = () => {
+const PatientDashboard = () => {
   return (
     <div>
         {/* 🔵 Top Header */}
@@ -30,56 +30,59 @@ const Patients = () => {
           <h1 className='text-3xl font-semibold'>Dashboard</h1>
         </div>
       </div>
-       {/* patientssidebar */}
-    
-    <div className='py-10 px-4 md:px-8 lg:px-30'>
-  
-<div className="flex flex-col lg:flex-row gap-6">
+      {/* patientssidebar */}
 
-  {/* 🧑‍⚕️ Sidebar */}
-  <div className="w-full lg:w-1/4">
-    <PatientSidebar />
-  </div>
+<div className='py-10 px-4 md:px-8 xl:px-20 2xl:px-32'>
 
-  {/* 👉 Right Side */}
-  <div className="w-full lg:w-3/4 flex flex-col gap-6">
+  <div className="flex flex-col xl:flex-row gap-6">
 
-    {/* 🔝 Top Section (Healthcare + Book Appointment) */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {/* 🧑‍⚕️ Sidebar */}
+    <div className="w-full xl:w-70 shrink-0">
+      <PatientSidebar />
+    </div>
 
-      {/* Healthcare */}
-      <div className="lg:col-span-1">
-        < HealthRecords/>
+    {/* 👉 Right Side */}
+    <div className="flex-1 flex flex-col gap-6">
+
+      {/* 🔝 Top Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        {/* ✅ Health Records Bigger */}
+        <div className="lg:col-span-2">
+          <HealthRecords />
+        </div>
+
+        {/* ✅ Book Appointment Smaller */}
+        <div className="lg:col-span-1">
+          <BookAppointments />
+        </div>
+
       </div>
 
-      {/* Book Appointment */}
-      <div className="lg:col-span-2">
-        <BookAppointments />
+      {/* 🔽 Middle Section */}
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <Appoints />
+        <Analytics />
+      </div>
+
+      {/* 🔻 Bottom Section */}
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <Notification />
+        <Upcoming />
+      </div>
+
+      {/* 📄 Reports */}
+      <div className="w-full">
+        <Reports />
       </div>
 
     </div>
 
-    {/* 🔽 Middle Section */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <Appoints />
-      <Analytics />
-    </div>
-
-    {/* 🔻 Bottom Section */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <Notification />
-      <Upcoming />
-    </div>
-    <div>
-      <Reports/>
-    </div>
-
   </div>
+
 </div>
-  </div>
-
     </div>
   )
 }
 
-export default Patients
+export default PatientDashboard;

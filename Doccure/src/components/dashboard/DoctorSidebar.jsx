@@ -39,7 +39,7 @@ const DoctorSidebar = () => {
                     Availability
                 </label>
                 <select className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option>I am Available Now</option>
+                    <option>Available Now</option>
                     <option>Not Available</option>
                 </select>
             </div>

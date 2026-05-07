@@ -4,10 +4,10 @@ import { CgProfile } from "react-icons/cg";
 import { AiTwotoneSchedule } from "react-icons/ai";
 import { RiSearchEyeFill } from "react-icons/ri";
 import { FaMarsDouble } from "react-icons/fa6";
-import Button from '../components/common/Button'
-import about01 from '../assets/about01.webp'
-import about02 from '../assets/about02.webp'
-import about03 from '../assets/about03.webp'
+import Button from "./Button";
+import about01 from '../../assets/about01.webp'
+import about02 from '../../assets/about02.webp'
+import about03 from '../../assets/about03.webp'
 import { AnimatePresence } from "framer-motion";
 import { motion } from "motion/react";
 

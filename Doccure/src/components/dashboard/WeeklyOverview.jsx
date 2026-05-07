@@ -32,7 +32,7 @@ const colors = [
 
 const WeeklyOverview = () => {
   return (
-    <div className="bg-white p-4 rounded-2xl shadow-md w-full max-w-md">
+    <div className="bg-white p-4 rounded-2xl  border border-gray-300 shadow-md w-full max-w-md">
       <h2 className="font-semibold mb-3">Weekly Overview</h2>
 
       <div className="w-full h-60">
