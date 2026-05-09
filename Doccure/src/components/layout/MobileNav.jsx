@@ -49,6 +49,7 @@ const MobileNav = () => {
       path: "/pages",
       subMenu: [
         { name: "About Us", path: "/about" },
+         { name: "Hospitals", path: "/hospitals" },
          { name: "Contact Us", path: "/contact" },
         { name: "Services", path: "/services" },
         { name: "FAQ", path: "/faq" },

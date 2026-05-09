@@ -13,6 +13,7 @@ import Blogs from './pages/Blogs'
 import TopBar from './components/layout/TopBar'
 import AboutUs from './pages/AboutUs'
 import ContactUs from './pages/ContactUs'
+import Hospitals from './pages/Hospitals'
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path='/doctordashboard' element={<DoctorDashboard/>}/>
          <Route path='/about' element={<AboutUs/>} />
           <Route path='/contact' element={<ContactUs/>} />
+           <Route path='/hospitals' element={<Hospitals/>} />
           <Route path='/blogs' element={<Blogs/>} />
         
     </Routes>
