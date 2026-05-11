@@ -8,6 +8,8 @@ import PatientRegister from './pages/Auth/PatientRegister'
 import Doctors from './pages/Dashboard/DoctorDashboard'
 import DoctorDashboard from './pages/Dashboard/DoctorDashboard'
 import PatientDashboard from './pages/Dashboard/PatientDashboard'
+import Appointments from './pages/Appointments/Appointments'
+import BookAppointment from './pages/Appointments/BookAppointment'
 
 import Blogs from './pages/Blogs'
 import TopBar from './components/layout/TopBar'
@@ -32,6 +34,9 @@ const App = () => {
          <Route path='/about' element={<AboutUs/>} />
           <Route path='/contact' element={<ContactUs/>} />
            <Route path='/hospitals' element={<Hospitals/>} />
+            <Route path='/appointments' element={<Appointments/>} />
+            <Route path='/book-appointment' element={<BookAppointment/>} />
+
           <Route path='/blogs' element={<Blogs/>} />
         
     </Routes>

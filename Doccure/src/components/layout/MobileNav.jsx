@@ -26,7 +26,8 @@ const MobileNav = () => {
       subMenu: [
         { name: "Doctor Details", path: "/doctor-details" },
         { name: "Doctor Dashboard", path: "/doctordashboard" },
-        { name: "Book Appointment", path: "/book-appointment" },
+        { name: "Appointments", path: "/appointments" },
+        
       ],
     },
 
@@ -36,6 +37,7 @@ const MobileNav = () => {
       subMenu: [
         { name: "Patient Dashboard", path: "/patientdashboard" },
         { name: "Patient Profile", path: "/patient-profile" },
+        { name: "Book Appointment", path: "/book-appointment" },
       ],
     },
 
