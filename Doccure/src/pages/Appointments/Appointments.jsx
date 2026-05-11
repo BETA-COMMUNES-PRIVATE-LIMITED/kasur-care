@@ -7,6 +7,7 @@ import {
   Plus,
 } from "lucide-react";
 import CalenderPicker from "../../components/common/CalendarPicker";
+import { Link } from "react-router-dom";
 
 const appointments = [
   {
@@ -65,6 +66,35 @@ const appointments = [
     doctorImg:
       "https://randomuser.me/api/portraits/men/40.jpg",
   },
+
+  {
+    id: 5,
+    date: "15 Apr 2025 - 11:20 AM",
+    patient: "Susan Bain",
+    phone: "+1 56556 96554",
+    doctor: "Dr. Sarah Johnson",
+    specialty: "Orthopedic Surgeon",
+    mode: "Online",
+    status: "Checked In",
+    patientImg:
+      "https://randomuser.me/api/portraits/women/44.jpg",
+    doctorImg:
+      "https://randomuser.me/api/portraits/women/50.jpg",
+  },
+  {
+    id: 6,
+    date: "15 Apr 2025 - 11:20 AM",
+    patient: "Susan Bain",
+    phone: "+1 56556 96554",
+    doctor: "Dr. Sarah Johnson",
+    specialty: "Orthopedic Surgeon",
+    mode: "Online",
+    status: "Checked In",
+    patientImg:
+      "https://randomuser.me/api/portraits/women/44.jpg",
+    doctorImg:
+      "https://randomuser.me/api/portraits/women/50.jpg",
+  },
 ];
 
 const getStatusStyle = (status) => {
@@ -86,24 +116,25 @@ const getStatusStyle = (status) => {
 
 const Appointments = () => {
   return (
-    <div className="min-h-screen bg-[#f5f7fb] p-4 md:p-8">
+    <div className="min-h-screen bg-white p-4 md:p-8">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
         <h1 className="text-2xl font-bold text-gray-800">
           Appointment
         </h1>
-
-        <button className="bg-purple-600 hover:bg-purple-700 transition text-white px-5 py-3 rounded-xl flex items-center gap-2 w-fit">
-          <Plus size={18} />
-          New Appointment
-        </button>
+        <Link to="/book-appointment">
+          <button className="bg-blue-600 hover:bg-blue-700 transition cursor-pointer text-white px-5 py-3 rounded-xl flex items-center gap-2 w-fit">
+            <Plus size={18} />
+            New Appointment
+          </button>
+        </Link>
       </div>
 
       {/* Top Filters */}
       <div className="bg-white rounded-2xl shadow-sm p-4 mb-6">
         <div className="flex flex-col lg:flex-row gap-4 lg:items-center lg:justify-between">
           {/* Search */}
-          <div className="relative w-full lg:w-[300px]">
+          <div className="relative w-full lg:w-75">
             <Search
               className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
               size={18}
@@ -111,14 +142,14 @@ const Appointments = () => {
             <input
               type="text"
               placeholder="Search"
-              className="w-full border border-gray-200 rounded-xl py-3 pl-10 pr-4 outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full border border-gray-200 rounded-xl py-3 pl-10 pr-4 outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           {/* Right Filters */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 cursor-pointer">
             {/* <button className="border border-gray-200 rounded-xl px-4 py-3 flex items-center gap-2 text-gray-600"> */}
-              <CalenderPicker />
+            <CalenderPicker />
             {/* </button> */}
 
             <button className="border border-gray-200 rounded-xl px-4 py-3 flex items-center gap-2 text-gray-600">
@@ -135,8 +166,8 @@ const Appointments = () => {
 
       {/* Table */}
       <div className="bg-white rounded-2xl shadow-sm overflow-x-auto">
-        <table className="w-full min-w-[1000px]">
-          <thead className="bg-gray-50 border-b">
+        <table className="w-full min-w-250">
+          <thead className="bg-gray-50 border-b border-gray-200">
             <tr className="text-left text-sm text-gray-500">
               <th className="px-6 py-4 font-semibold">Date & Time</th>
               <th className="px-6 py-4 font-semibold">Patient</th>
@@ -151,7 +182,7 @@ const Appointments = () => {
             {appointments.map((item) => (
               <tr
                 key={item.id}
-                className="border-b last:border-none hover:bg-gray-50 transition"
+                className="border-b border-gray-200 cursor-pointer last:border-none hover:bg-gray-50 transition"
               >
                 {/* Date */}
                 <td className="px-6 py-5 text-sm text-gray-700">
