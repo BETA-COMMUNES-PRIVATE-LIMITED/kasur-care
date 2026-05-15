@@ -46,15 +46,25 @@ const MobileNav = () => {
       path: "/pharmacy",
     },
 
-    {
+     {
       name: "Pages",
-      path: "/pages",
+      path: '',
       subMenu: [
         { name: "About Us", path: "/about" },
-         { name: "Hospitals", path: "/hospitals" },
-         { name: "Contact Us", path: "/contact" },
-        { name: "Services", path: "/services" },
-        { name: "FAQ", path: "/faq" },
+        { name: "Hospitals", path: "/hospitals" },
+        { name: "Contact Us", path: "/contact" },
+        { name: "Pharmacy", path: "/pharmacy" },
+        { name: "Lab Test", path: "/labtest" },
+        { name: "Appointments", path: "/appointments" },
+        { name: "Book Appointment", path: "/book-appointment" },
+        { name: "Doctor Dashboard", path: "/doctordashboard" },
+        { name: "Patient Dashboard", path: "/patientdashboard" },
+        
+         { name: "Signup", path: "/signup" },
+          { name: "Doctor Register", path: "/doctorregister" },
+          { name: "Patient Register", path: "/patientregister" },
+
+
       ],
     },
 

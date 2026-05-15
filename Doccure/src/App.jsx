@@ -10,7 +10,8 @@ import DoctorDashboard from './pages/Dashboard/DoctorDashboard'
 import PatientDashboard from './pages/Dashboard/PatientDashboard'
 import Appointments from './pages/Appointments/Appointments'
 import BookAppointment from './pages/Appointments/BookAppointment'
-
+import Pharmacy from './pages/Pharmacy'
+import LabTest from './pages/LabTest'
 import Blogs from './pages/Blogs'
 import TopBar from './components/layout/TopBar'
 import AboutUs from './pages/AboutUs'
@@ -36,6 +37,9 @@ const App = () => {
            <Route path='/hospitals' element={<Hospitals/>} />
             <Route path='/appointments' element={<Appointments/>} />
             <Route path='/book-appointment' element={<BookAppointment/>} />
+            <Route path='/pharmacy' element={<Pharmacy/>} />
+            <Route path='/labtest' element={<LabTest/>} />
+
 
           <Route path='/blogs' element={<Blogs/>} />
         
