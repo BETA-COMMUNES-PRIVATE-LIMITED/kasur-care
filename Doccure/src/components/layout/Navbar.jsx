@@ -17,7 +17,7 @@ const Navbar = () => {
         { name: "Doctor Details", path: "/doctor-details" },
         { name: "Doctor Dashboard", path: "/doctordashboard" },
         { name: "Appointments", path: "/appointments" },
-       
+
       ],
     },
 
@@ -27,7 +27,7 @@ const Navbar = () => {
       subMenu: [
         { name: "Patient Dashboard", path: "/patientdashboard" },
         { name: "Patient Profile", path: "/patient-profile" },
-         { name: "Book Appointment", path: "/book-appointment" },
+        { name: "Book Appointment", path: "/book-appointment" },
       ],
     },
 
@@ -52,7 +52,7 @@ const Navbar = () => {
 
   return (
     <nav className=' sticky top-0 z-50'>
-      <div className='  py-2 px-6 lg:px-30  gap-8 w-full  bg-white border-b-2 border-gray-200  left-0 right-0'>
+      <div className='  py-2 px-6 lg:px-30  gap-8 w-full   bg-white border-b-2 border-gray-200  left-0 right-0'>
 
         <div className="flex items-center justify-between h-15">
           {/* logo */}
@@ -68,24 +68,26 @@ const Navbar = () => {
                 <Link to={item.path} className="flex items-center gap-1">
                   {item.name}
 
-                  {/* Show dropdown icon only if submenu exists */}
+                  {/* Dropdown Icon */}
                   {item.subMenu && <IoChevronDown size={16} />}
                 </Link>
 
-                {/* Dropdown Menu */}
+                {/* Dropdown */}
                 {item.subMenu && (
-                  <ul className="absolute top-8 left-0 hidden group-hover:block bg-white shadow-lg rounded-lg w-52 py-2 z-50">
-                    {item.subMenu.map((subItem, subIndex) => (
-                      <li key={subIndex}>
-                        <Link
-                          to={subItem.path}
-                          className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500 transition"
-                        >
-                          {subItem.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="absolute top-full left-0 pt-2 hidden group-hover:block z-50">
+                    <ul className="bg-white shadow-lg rounded-lg w-52 py-2">
+                      {item.subMenu.map((subItem, subIndex) => (
+                        <li key={subIndex}>
+                          <Link
+                            to={subItem.path}
+                            className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-500"
+                          >
+                            {subItem.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
               </li>
             ))}
