@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { blogs } from './data/blogs';
 import Button from "../components/common/Button";
+import { motion } from "framer-motion";
 
 const Blogs = () => {
     return (
@@ -9,16 +10,22 @@ const Blogs = () => {
 
             <div className="text-center mb-12">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
-            Medical
-            <span className="text-blue-400"> Blogs</span>
-          </h1>
+                    Medical
+                    <span className="text-blue-400"> Blogs</span>
+                </h1>
 
                 <p className="text-gray-500 mt-3 text-lg ">
                     Read the latest healthcare articles and medical tips
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+                initial={{ opacity: 0, y: 80 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 {blogs.map((blog) => (
                     <div
@@ -47,8 +54,8 @@ const Blogs = () => {
                     </div>
                 ))}
 
-            </div>
-        </div>
+            </motion.div>
+        </div >
     );
 };
 

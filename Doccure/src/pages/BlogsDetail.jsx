@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { blogs } from "./data/blogs";
 import Button from "../components/common/Button";
+import { motion } from "framer-motion";
 
 const BlogsDetail = () => {
   const { id } = useParams();
@@ -18,9 +19,15 @@ const BlogsDetail = () => {
 
   return (
     <div className="px-6 md:px-12 lg:px-20 py-16 bg-gray-50 min-h-screen">
-      
-      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
-        
+
+      <motion.div
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+
+        className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+
         <img
           src={blog.image}
           alt={blog.title}
@@ -37,13 +44,13 @@ const BlogsDetail = () => {
           </p>
 
           <Link to="/blogs">
-            
+
             <Button className="mt-8">Back to Blogs</Button>
           </Link>
         </div>
 
-      </div>
-    </div>
+    </motion.div>
+    </div >
   );
 };
 
