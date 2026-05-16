@@ -1,97 +1,55 @@
-import React from 'react'
-import { motion } from "framer-motion";
-import Button from '../components/common/Button';
-import blog1 from '../assets/blog1.webp';
-import blog2 from '../assets/blog2.webp';
-
-const Blog = [
-    { 
-        img: blog1, 
-        heading: 'Understanding and Preventing Glaucoma: A Detailed Guide', 
-        content: 'Glaucoma is a leading cause of blindness worldwide, yet many....',
-        title: 'Treatments',
-        btn: 'Read More' 
-    },
-    { 
-        img: blog2, 
-        heading: 'Understanding and Preventing Glaucoma: A Detailed Guide', 
-        content: 'Discover the intersection of technology and neurology, transforming....',
-        title: 'Neurology',
-        btn: 'Read More' 
-    }
-]
+import React from "react";
+import { Link } from "react-router-dom";
+import { blogs } from './data/blogs';
+import Button from "../components/common/Button";
 
 const Blogs = () => {
     return (
-        <div className='py-20 px-6 md:px-12 lg:px-24 mt-8'>
-            <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
-            >
+        <div className="px-6 md:px-12 lg:px-20 py-16 bg-gray-50 min-h-screen">
 
-                {/* Heading */}
-                <div className="text-center space-y-4">
-                    <Button>• Recent Blogs •</Button>
+            <div className="text-center mb-12">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
+            Medical
+            <span className="text-blue-400"> Blogs</span>
+          </h1>
 
-                    <h1 className="text-3xl md:text-4xl font-semibold">
-                        Stay Updated With Our 
-                        <span className="text-blue-400"> Latest Articles</span>
-                    </h1>
-                </div>
+                <p className="text-gray-500 mt-3 text-lg ">
+                    Read the latest healthcare articles and medical tips
+                </p>
+            </div>
 
-                {/* Cards */}
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-10'>
-                    {Blog.map((items, i) => (
-                        <div 
-                            key={i} 
-                            className='flex flex-col md:flex-row gap-4 bg-white rounded-2xl shadow-xl p-4 hover:shadow-2xl transition duration-300 relative'
-                        >
-                            
-                            {/* Image */}
-                            <div className='relative'>
-                                <img 
-                                    src={items.img} 
-                                    alt='' 
-                                    className='rounded-xl w-full md:w-56 h-40 object-cover'
-                                />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                                {/* Date */}
-                                <div className="absolute top-2 left-2 bg-orange-100 text-black text-xs px-3 py-1 rounded shadow">
-                                    <span className='font-bold'>18</span><br />May
-                                </div>
-                            </div>
+                {blogs.map((blog) => (
+                    <div
+                        key={blog.id}
+                        className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
+                    >
+                        <img
+                            src={blog.image}
+                            alt={blog.title}
+                            className="w-full h-56 object-cover"
+                        />
 
-                            {/* Content */}
-                            <div className='space-y-3'>
-                                <span className='inline-block text-white text-xs px-3 py-1 bg-blue-500 rounded-full'>
-                                    {items.title}
-                                </span>
+                        <div className="p-6">
+                            <h2 className="text-2xl font-semibold text-gray-800 mb-3">
+                                {blog.title}
+                            </h2>
 
-                                <h2 className='text-lg font-semibold leading-snug'>
-                                    {items.heading}
-                                </h2>
+                            <p className="text-gray-500 mb-5">
+                                {blog.description}
+                            </p>
 
-                                <p className='text-sm text-gray-600'>
-                                    {items.content}
-                                </p>
-
-                                <span className='text-blue-500 text-sm font-medium cursor-pointer hover:underline'>
-                                    {items.btn}
-                                </span>
-                            </div>
+                            <Link to={`/blog/${blog.id}`}>
+                                <Button>Read More</Button>
+                            </Link>
                         </div>
-                    ))}
-                </div>
+                    </div>
+                ))}
 
-                {/* Bottom Button */}
-                <div className='text-center mt-12'>
-                    <Button>View All Articles</Button>
-                </div>
-
-            </motion.div>
+            </div>
         </div>
-    )
-}
+    );
+};
 
 export default Blogs;

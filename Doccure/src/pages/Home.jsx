@@ -9,7 +9,7 @@ import About from '../components/common/About'
 import Testimonial from '../components/common/Testimonial'
 import TrustPartner from '../components/common/TrustPartner'
 import Quries from '../components/common/Quries'
-import Blogs from './Blogs'
+import Blog from '../components/common/Blog'
 import Footer from '../components/layout/Footer'
 
 
@@ -26,7 +26,7 @@ const Home = () => {
    <Testimonial/>
    <TrustPartner/>
    <Quries/>
-   <Blogs/>
+   <Blog/>
    <Footer/>
 
    

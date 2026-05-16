@@ -17,6 +17,7 @@ import TopBar from './components/layout/TopBar'
 import AboutUs from './pages/AboutUs'
 import ContactUs from './pages/ContactUs'
 import Hospitals from './pages/Hospitals'
+import BlogsDetail from './pages/BlogsDetail'
 
 const App = () => {
   return (
@@ -41,7 +42,13 @@ const App = () => {
             <Route path='/labtest' element={<LabTest/>} />
 
 
-          <Route path='/blogs' element={<Blogs/>} />
+          {/* <Route path='/blogs' element={<Blogs/>} /> */}
+          {/* <Route path='/blogs/:id' element={<BlogsDetail/>} /> */}
+           <Route path="/" element={<Blogs />} />
+
+        <Route path="/blogs" element={<Blogs />} />
+
+        <Route path="/blog/:id" element={<BlogsDetail />} />
         
     </Routes>
     </BrowserRouter>
