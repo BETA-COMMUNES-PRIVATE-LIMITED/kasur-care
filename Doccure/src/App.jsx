@@ -19,6 +19,8 @@ import ContactUs from './pages/ContactUs'
 import Hospitals from './pages/Hospitals'
 import BlogsDetail from './pages/BlogsDetail'
 
+import AdminRoutes from './pages/AdminRoutes'
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -40,6 +42,7 @@ const App = () => {
             <Route path='/book-appointment' element={<BookAppointment/>} />
             <Route path='/pharmacy' element={<Pharmacy/>} />
             <Route path='/labtest' element={<LabTest/>} />
+             <Route path="/admin/*" element={<AdminRoutes/> } />
 
 
           {/* <Route path='/blogs' element={<Blogs/>} /> */}

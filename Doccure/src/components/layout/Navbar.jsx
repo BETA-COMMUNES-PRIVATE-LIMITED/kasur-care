@@ -56,7 +56,7 @@ const Navbar = () => {
     },
 
     { name: "Blog", path: '/blogs' },
-    { name: "Admin", path: '/admin' },
+    { name: "Admin", path: '"/admin/*" ' },
   ];
   const [isOpen, setIsOpen] = useState(false);
 
