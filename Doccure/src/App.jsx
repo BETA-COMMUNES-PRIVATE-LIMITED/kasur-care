@@ -18,7 +18,7 @@ import AboutUs from './pages/AboutUs'
 import ContactUs from './pages/ContactUs'
 import Hospitals from './pages/Hospitals'
 import BlogsDetail from './pages/BlogsDetail'
-
+// import Footer from './pages/Footer'
 import AdminRoutes from './pages/AdminRoutes'
 
 const App = () => {
@@ -52,6 +52,7 @@ const App = () => {
         <Route path="/blogs" element={<Blogs />} />
 
         <Route path="/blog/:id" element={<BlogsDetail />} />
+        {/* <Route path='/footer' element={<Footer/>} /> */}
         
     </Routes>
     </BrowserRouter>

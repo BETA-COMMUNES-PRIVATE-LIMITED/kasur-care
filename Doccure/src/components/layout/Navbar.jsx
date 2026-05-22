@@ -56,6 +56,7 @@ const Navbar = () => {
     },
 
     { name: "Blog", path: '/blogs' },
+    { name: "Contact Us", path: "/contact" },
     { name: "Admin", path: '"/admin/*" ' },
   ];
   const [isOpen, setIsOpen] = useState(false);
@@ -66,7 +67,9 @@ const Navbar = () => {
 
         <div className="flex items-center justify-between h-15">
           {/* logo */}
+            <Link to="/">
           <img src={logo} alt="Company Logo" className="h-10 w-auto" />
+          </Link>
           {/* 🔹 Desktop Menu */}
           <ul className="hidden lg:flex items-center gap-6">
             {Menu.map((item, index) => (
