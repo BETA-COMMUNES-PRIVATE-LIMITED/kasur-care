@@ -1,21 +1,30 @@
-import React from 'react'
-import { Routes,Route } from 'react-router-dom'
-import Sidebar from './admin/layouts/Sidebar'
-import Topbar from './admin/layouts/Topbar'
-import AdminLayout from './admin/layouts/AdminLayout'
-import Dashboard from './admin/dashboard/Dashboard'
-import Patients from './admin/patients/Patients'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+
+import AdminLayout from "./admin/AdminLayout";
+import AdminDashboard from "./admin/AdminDashboard";
+import AdminDoctors from "./admin/AdminDoctors";
+import AdminPatients from "./admin/AdminPatients";
+import AdminAppointments from "./admin/AdminAppointments";
 
 const AdminRoutes = () => {
   return (
-   <Routes>
-    <Route path= 'sidebar' element={<Sidebar/>}/>
-    <Route path='topbar' element={<Topbar/>}/>
-    <Route path='adminlayout' element={<AdminLayout/>}/>
-    <Route path='dashboard' element={<Dashboard/>}/>  
-    <Route path='patients' element={<Patients/>}/>  
-   </Routes>
-  )
-}
+    <Routes>
 
-export default AdminRoutes
+      <Route element={<AdminLayout />}>
+
+        <Route index element={<AdminDashboard />} />
+
+        <Route path="doctors" element={<AdminDoctors />} />
+
+        <Route path="patients" element={<AdminPatients />} />
+
+        <Route path="appointments" element={<AdminAppointments />} />
+
+      </Route>
+
+    </Routes>
+  );
+};
+
+export default AdminRoutes;
