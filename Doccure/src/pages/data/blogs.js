@@ -1,3 +1,35 @@
+import blog1 from '../../assets/blog1.webp';
+import blog2 from '../../assets/blog2.webp';
+
+export const BlogData = [
+  {
+    id: 1,
+    img: blog1,
+    heading: 'Understanding and Preventing Glaucoma: A Detailed Guide',
+    content:
+      'Glaucoma is a leading cause of blindness worldwide, yet many....',
+    details:
+      'Glaucoma is a serious eye condition that damages the optic nerve and can lead to vision loss if not treated early. Regular eye checkups, healthy lifestyle choices, and early detection are key to preventing glaucoma complications.',
+    title: 'Treatments',
+    btn: 'Read More',
+  },
+
+  {
+    id: 2,
+    img: blog2,
+    heading: 'Understanding and Preventing Glaucoma: A Detailed Guide',
+    content:
+      'Discover the intersection of technology and neurology, transforming....',
+    details:
+      'Neurology is rapidly evolving with modern technology. From AI-powered diagnostics to robotic surgeries, innovative healthcare solutions are improving patient care and treatment outcomes.',
+    title: 'Neurology',
+    btn: 'Read More',
+  },
+];
+
+
+
+
 export const blogs = [
   {
     id: 1,
@@ -37,7 +69,7 @@ export const blogs = [
     description:
       "Mental health is just as important as physical health for overall wellbeing.",
     image:
-      "https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?q=80&w=1200&auto=format&fit=crop",
+      blog1,
     details:
       "Taking care of mental health improves emotional stability, relationships, and productivity. Meditation, exercise, and proper rest are very helpful.",
   },
@@ -47,7 +79,7 @@ export const blogs = [
     description:
       "Mental health is just as important as physical health for overall wellbeing.",
     image:
-      "https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?q=80&w=1200&auto=format&fit=crop",
+      blog2,
     details:
       "Taking care of mental health improves emotional stability, relationships, and productivity. Meditation, exercise, and proper rest are very helpful.",
   },
@@ -57,7 +89,7 @@ export const blogs = [
     description:
       "Mental health is just as important as physical health for overall wellbeing.",
     image:
-      "https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?q=80&w=1200&auto=format&fit=crop",
+      blog1,
     details:
       "Taking care of mental health improves emotional stability, relationships, and productivity. Meditation, exercise, and proper rest are very helpful.",
   },

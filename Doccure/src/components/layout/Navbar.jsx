@@ -12,9 +12,9 @@ const Navbar = () => {
 
     {
       name: "Doctors",
-      path: '/doctors',
+      path: '',
       subMenu: [
-        { name: "Doctor Details", path: "/doctor-details" },
+        { name: "All Doctor ", path: "/doctors" },
         { name: "Doctor Dashboard", path: "/doctordashboard" },
         { name: "Appointments", path: "/appointments" },
 
@@ -23,10 +23,10 @@ const Navbar = () => {
 
     {
       name: "Patients",
-      path: '/patients',
+      path: '',
       subMenu: [
         { name: "Patient Dashboard", path: "/patientdashboard" },
-        { name: "Patient Profile", path: "/patient-profile" },
+        { name: " All Patient ", path: 'patients' },
         { name: "Book Appointment", path: "/book-appointment" },
       ],
     },
