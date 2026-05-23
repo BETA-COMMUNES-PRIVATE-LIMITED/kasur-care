@@ -1,4 +1,6 @@
+
 import React from 'react'
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Signup from './pages/Auth/Signup'
@@ -24,9 +26,11 @@ import Patients from './pages/Patients'
 import DoctorProfile from './pages/DoctorProfile'
 import Doctors from './pages/Doctors'
 import HomeCare from './pages/HomeCare'
+import ScrollProgress from './components/common/ScrollProgress'
 
 
 const App = () => {
+ 
   return (
     <BrowserRouter>
       <div className='hidden lg:flex'>
@@ -58,7 +62,9 @@ const App = () => {
 
 
       </Routes>
+      <ScrollProgress/>
     </BrowserRouter>
+    
   )
 }
 
