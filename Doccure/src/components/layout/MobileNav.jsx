@@ -15,38 +15,32 @@ import {
 const MobileNav = () => {
 
   const Menu = [
-    {
-      name: "Home",
-      path: "/",
-    },
+    { name: "Home", path: '/' },
 
     {
       name: "Doctors",
-      path: "/doctors",
+      path: '',
       subMenu: [
-        { name: "Doctor Details", path: "/doctor-details" },
+        { name: "All Doctor ", path: "/doctors" },
         { name: "Doctor Dashboard", path: "/doctordashboard" },
         { name: "Appointments", path: "/appointments" },
-        
+
       ],
     },
 
     {
       name: "Patients",
-      path: "/patients",
+      path: '',
       subMenu: [
         { name: "Patient Dashboard", path: "/patientdashboard" },
-        { name: "Patient Profile", path: "/patient-profile" },
+        { name: " All Patient ", path: 'patients' },
         { name: "Book Appointment", path: "/book-appointment" },
       ],
     },
 
-    {
-      name: "Pharmacy",
-      path: "/pharmacy",
-    },
+    { name: "Pharmacy", path: '/pharmacy' },
 
-     {
+    {
       name: "Pages",
       path: '',
       subMenu: [
@@ -68,15 +62,9 @@ const MobileNav = () => {
       ],
     },
 
-    {
-      name: "Blog",
-      path: "/blogs",
-    },
-
-    {
-      name: "Admin",
-      path: "/admin",
-    },
+    { name: "Blog", path: '/blogs' },
+    { name: "Contact Us", path: "/contact" },
+    { name: "Admin", path: "/admin" },
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -153,7 +141,7 @@ const MobileNav = () => {
                     >
                       <IoChevronDown
                         size={18}
-                        className={`transition-transform duration-300 ${
+                        className={`transition-transform duration-300 cursor-pointer ${
                           openDropdown === index
                             ? "rotate-180"
                             : ""
@@ -174,7 +162,7 @@ const MobileNav = () => {
                         <Link
                           to={subItem.path}
                           onClick={() => setIsMenuOpen(false)}
-                          className="block text-sm text-gray-500 hover:text-blue-500 transition"
+                          className="block text-sm font-medium space-y-4 text-gray-500 hover:text-blue-500 transition"
                         >
                           {subItem.name}
                         </Link>
