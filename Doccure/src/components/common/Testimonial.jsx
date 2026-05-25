@@ -40,7 +40,7 @@ const stats = [
 
 const Testimonial = () => {
   return (
-    <div className="bg-gradient-to-r from-blue-50 to-gray-100 w-full overflow-hidden py-14">
+    <div className="bg-linear-to-r from-blue-50 to-gray-100 w-full overflow-hidden py-14">
 
       <div className="px-4 sm:px-6 md:px-10 lg:px-20 xl:px-30">
 
