@@ -128,7 +128,7 @@ const About = () => {
                             </div>
                             <h1 className="text-xl font-bold hover:text-blue-600 ">{items.heading}</h1>
                             <p className="text-lg">{items.para}</p>
-                            <h1 className="text-6xl font-semibold text-blue-700 opacity-20 hover:opacity-60">{items.num}</h1>
+                            <h1 className="text-6xl font-semibold text-blue-700 opacity-40 hover:opacity-60">{items.num}</h1>
                         </div>
 
                     ))

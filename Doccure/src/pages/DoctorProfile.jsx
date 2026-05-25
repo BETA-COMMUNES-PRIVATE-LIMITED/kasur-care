@@ -65,13 +65,19 @@ const DoctorProfile = () => {
         </div>
 
         {/* BACK BUTTON */}
-        <div className="mt-8">
+        <div className="mt-8 gap-4 flex justify-center">
 
           <Link
             to="/doctors"
             className="bg-blue-500 text-white px-5 py-2 rounded-lg"
           >
             ← Back to Doctors
+          </Link>
+          <Link
+            to="/Appointments"
+            className="bg-blue-500 text-white px-5 py-2 rounded-lg"
+          >
+            ← Book Appointments
           </Link>
 
         </div>

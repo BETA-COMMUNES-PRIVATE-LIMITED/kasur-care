@@ -1,102 +1,115 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import baner from "../../assets/baner.webp"; // use same illustration
+import baner from "../../assets/baner.webp";
+import { motion } from "motion/react";
 
 const DoctorRegister = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // 👉 here you will later connect backend
-    console.log("Doctors Registered");
-
-    // redirect after signup
-    navigate("/doctors"); 
+    console.log("Doctor Registered");
+    navigate("/doctors");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-6">
+    <div className="min-h-screen flex items-center justify-center bg-white px-4 sm:px-6 lg:px-10 py-10">
       
-      <div className="max-w-6xl w-full grid lg:grid-cols-2 gap-10 items-center">
+      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         
-        {/* 🔹 Left Image */}
-        <div className="hidden lg:block">
-          <img src={baner} alt="register" className="w-full" />
-        </div>
+        {/* LEFT IMAGE (hidden on mobile) */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          className="hidden lg:flex justify-center"
+        >
+          <img
+            src={baner}
+            alt="doctor register"
+            className="w-full max-w-md object-contain"
+          />
+        </motion.div>
 
-        {/* 🔹 Right Form */}
-        <div className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-md mx-auto">
+        {/* RIGHT FORM */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          className="w-full max-w-md mx-auto bg-white shadow-xl rounded-2xl p-6 sm:p-8"
+        >
           
           {/* Header */}
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-semibold">Doctor Register</h2>
+          <div className ="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
+            <h2 className="text-xl font-semibold text-gray-800">
+              Doctor Register
+            </h2>
 
-            <Link to="/PatientRegister" className="text-blue-500 text-sm font-semibold">
+            <Link
+              to="/PatientRegister"
+              className="text-blue-500 text-sm font-semibold hover:underline"
+            >
               Are you a Patient?
             </Link>
           </div>
 
-          <form onSubmit={handleSubmit}>
+          {/* FORM */}
+          <form onSubmit={handleSubmit} className="space-y-4">
             
-            {/* Name */}
             <input
               type="text"
               placeholder="Name"
-              className="w-full rounded-full border  border-gray-300  p-3  mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
 
-            {/* Phone */}
             <input
               type="tel"
               placeholder="Phone"
-              className="w-full rounded-full  border-gray-300  border p-3  mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
 
-            {/* Password */}
             <input
               type="password"
               placeholder="Create Password"
-              className="w-full  p-3 rounded-full border  border-gray-300 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full p-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
 
-            {/* Submit */}
-             <Link to="/doctors" className="text-blue-500 font-semibold">
-            
-            
             <button
               type="submit"
-              className="w-full bg-linear-to-r from-blue-600 to-cyan-500 text-white py-3 rounded-full font-medium"
+              className="w-full bg-linear-to-r from-blue-600 to-cyan-500 text-white py-3 rounded-full font-medium hover:opacity-90 transition"
             >
               Sign Up
             </button>
-            </Link>
           </form>
 
-          {/* Divider */}
-          <div className="flex items-center my-5">
+          {/* DIVIDER */}
+          <div className="flex items-center my-6">
             <div className="flex-1 h-px bg-gray-300"></div>
             <span className="px-3 text-gray-400 text-sm">or</span>
             <div className="flex-1 h-px bg-gray-300"></div>
           </div>
 
-          {/* Social */}
-          <button className="w-full  text-taupe-500 font-medium border  border-gray-300 py-2 rounded-full  cursor-pointer mb-3 hover:bg-gray-100">
-            Sign in With Google
-          </button>
+          {/* SOCIAL BUTTONS */}
+          <div className="space-y-3">
+            <button className="w-full border border-gray-300 py-2 rounded-full hover:bg-gray-100 transition">
+              Sign in With Google
+            </button>
 
-          <button className="w-full text-taupe-500 font-medium border  border-gray-300 py-2 cursor-pointer rounded-full hover:bg-gray-100">
-            Sign in With Facebook
-          </button>
+            <button className="w-full border border-gray-300 py-2 rounded-full hover:bg-gray-100 transition">
+              Sign in With Facebook
+            </button>
+          </div>
 
-          {/* Footer */}
-          <p className="text-sm text-center text-taupe-500  font-medium mt-5">
+          {/* FOOTER */}
+          <p className="text-sm text-center text-gray-500 mt-6">
             Already have an account?{" "}
             <Link to="/signup" className="text-blue-500 font-semibold">
               Sign In
             </Link>
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

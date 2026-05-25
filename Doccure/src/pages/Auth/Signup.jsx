@@ -1,6 +1,7 @@
 import React from 'react'
 import baner from '../../assets/baner.webp'
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 
 const Signup = () => {
   return (
@@ -9,17 +10,28 @@ const Signup = () => {
       <div className="grid md:grid-cols-2 gap-10 items-center max-w-6xl w-full">
         
         {/* LEFT SIDE (Image) */}
-        <div className="hidden md:block">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          className="hidden md:block">
           <img
             src={baner}
             alt="doctor"
             className="w-full"
           />
-        </div>
+        </motion.div>
 
         {/* RIGHT SIDE (FORM) */}
  {/* 🔹 Right Form */}
-        <div className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md mx-auto">
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md mx-auto"
+        >
           <h2 className="text-2xl font-semibold mb-6">Login Doccure</h2>
 
           {/* Email */}
@@ -79,7 +91,7 @@ const Signup = () => {
               Sign Up
             </Link>
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
       

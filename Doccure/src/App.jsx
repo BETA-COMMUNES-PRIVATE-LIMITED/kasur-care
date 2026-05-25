@@ -24,6 +24,7 @@ import AdminRoutes from './pages/AdminRoutes'
 import PatientProfile from './pages/PatientProfile'
 import Patients from './pages/Patients'
 import DoctorProfile from './pages/DoctorProfile'
+// import DoctorProfile2 from './pages/DoctorProfile2'
 import Doctors from './pages/Doctors'
 import HomeCare from './pages/HomeCare'
 import ScrollProgress from './components/common/ScrollProgress'
@@ -59,6 +60,7 @@ const App = () => {
         <Route path="/patients/:id" element={<PatientProfile />} />
         <Route path="/doctors" element={<Doctors />} />
         <Route path="/doctors/:id" element={<DoctorProfile />} />
+         {/* <Route path="/doctors/:id" element={<DoctorProfile2 />} /> */}
         <Route path="/home-care" element={<HomeCare />} />
 
 

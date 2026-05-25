@@ -16,8 +16,9 @@ const labs = [
     id: 1,
     name: "City Diagnostic Lab",
     rating: 4.9,
-    distance: "1.5 KM",
+    distance: 1.5,
     timing: "Open till 11 PM",
+    open: true,
     homeSample: true,
     reports: true,
     image:
@@ -27,8 +28,9 @@ const labs = [
     id: 2,
     name: "Health Care Lab",
     rating: 4.7,
-    distance: "2.8 KM",
+    distance: 2.8,
     timing: "Open till 10 PM",
+    open: false,
     homeSample: false,
     reports: true,
     image:
@@ -38,8 +40,9 @@ const labs = [
     id: 3,
     name: "Advanced Medical Lab",
     rating: 4.8,
-    distance: "3.2 KM",
+    distance: 3.2,
     timing: "24 Hours Service",
+    open: true,
     homeSample: true,
     reports: true,
     image:
@@ -49,215 +52,190 @@ const labs = [
 
 const LabTest = () => {
   const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("nearby");
 
-  //  Search Filter
-  const filteredLabs = labs.filter((item) =>
+  // SEARCH FILTER
+  const searchData = labs.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  //  Booking Function
+  // MAIN FILTER LOGIC
+  const filteredLabs = searchData.filter((item) => {
+    if (filter === "nearby") return item.distance <= 3;
+
+    if (filter === "open") return item.open === true;
+
+    if (filter === "fast") return item.homeSample === true;
+
+    if (filter === "top") return item.rating >= 4.8;
+
+    return true;
+  });
+
   const handleBooking = (name) => {
     alert(`Appointment booked at ${name}`);
   };
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/*  Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-14 px-4 md:px-10">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
 
-          {/* Left */}
+      {/* HERO SECTION */}
+      <div className="bg-linear-to-r from-blue-600 to-cyan-500 text-white py-10 sm:py-14 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+
+          {/* LEFT */}
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
               Book Lab Tests & Upload Prescription
             </h1>
 
-            <p className="mt-5 text-lg text-cyan-100">
-              Find nearby diagnostic labs, upload prescriptions,
-              and book tests easily from your home.
+            <p className="mt-4 sm:mt-5 text-sm sm:text-base text-cyan-100">
+              Find nearby labs, upload prescription and book tests easily.
             </p>
 
-            {/* Search */}
-            <div className="mt-8 bg-white rounded-2xl flex items-center p-2 shadow-xl">
+            {/* SEARCH */}
+            <div className="mt-6 sm:mt-8 bg-white rounded-2xl flex items-center p-2 shadow-xl">
               <Search className="text-gray-400 ml-2" size={20} />
 
               <input
                 type="text"
-                placeholder="Search labs or tests..."
+                placeholder="Search labs..."
                 className="w-full outline-none px-3 py-2 text-gray-700"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
 
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl transition">
+              <button className="bg-blue-600 text-white px-4 sm:px-6 py-2 rounded-xl">
                 Search
               </button>
             </div>
           </div>
 
-          {/* Upload Card */}
-          <div className="bg-white rounded-3xl p-8 shadow-2xl">
-            <div className="border-2 border-dashed border-cyan-300 rounded-2xl p-10 text-center">
+          {/* UPLOAD */}
+          <div className="bg-white rounded-3xl p-5 sm:p-8 shadow-2xl">
+            <div className="border-2 border-dashed border-cyan-300 rounded-2xl p-6 sm:p-10 text-center">
 
-              <div className="bg-cyan-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto">
-                <Upload className="text-blue-400" size={35} />
-              </div>
+              <Upload className="text-blue-500 mx-auto" size={40} />
 
-              <h3 className="text-2xl font-bold text-gray-800 mt-5">
-                Upload Test Prescription
+              <h3 className="text-lg sm:text-2xl font-bold mt-4">
+                Upload Prescription
               </h3>
 
-              <p className="text-gray-500 mt-2">
-                Upload PDF, JPG, or PNG file
+              <p className="text-gray-500 text-sm mt-2">
+                PDF, JPG, PNG supported
               </p>
 
-              <input
-                type="file"
-                className="hidden"
-                id="labPrescription"
-              />
+              <input type="file" id="lab" className="hidden" />
 
               <label
-                htmlFor="labPrescription"
-                className="inline-block mt-6 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl cursor-pointer transition"
+                htmlFor="lab"
+                className="mt-5 inline-block bg-blue-600 text-white px-6 py-3 rounded-xl cursor-pointer"
               >
                 Choose File
               </label>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* 🔍 Filters */}
-      <div className="max-w-7xl mx-auto px-4 md:px-10 py-10">
-        <div className="flex flex-wrap gap-4">
-
-          <button className="bg-blue-600 text-white px-5 py-2 rounded-full">
-            Nearby Labs
-          </button>
-
-          <button className="bg-white shadow px-5 py-2 rounded-full">
-            Home Sampling
-          </button>
-
-          <button className="bg-white shadow px-5 py-2 rounded-full">
-            Open Now
-          </button>
-
-          <button className="bg-white shadow px-5 py-2 rounded-full">
-            Top Rated
-          </button>
 
         </div>
       </div>
 
-      {/*  Lab Cards */}
-      <div className="max-w-7xl mx-auto px-4 md:px-10 pb-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* FILTER BUTTONS */}
+      <div className="max-w-7xl mx-auto px-4 py-8 flex flex-wrap gap-3">
 
-          {filteredLabs.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-3xl overflow-hidden shadow hover:shadow-2xl transition duration-300"
-            >
+        <button
+          onClick={() => setFilter("nearby")}
+          className={`px-5 py-2 rounded-full ${
+            filter === "nearby" ? "bg-blue-600 text-white" : "bg-white shadow"
+          }`}
+        >
+          Nearby Labs
+        </button>
 
-              {/* Image */}
-              <div className="h-56 overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover hover:scale-110 transition duration-500"
-                />
-              </div>
+        <button
+          onClick={() => setFilter("fast")}
+          className={`px-5 py-2 rounded-full ${
+            filter === "fast" ? "bg-blue-600 text-white" : "bg-white shadow"
+          }`}
+        >
+          Home Sampling
+        </button>
 
-              {/* Content */}
-              <div className="p-6">
+        <button
+          onClick={() => setFilter("open")}
+          className={`px-5 py-2 rounded-full ${
+            filter === "open" ? "bg-blue-600 text-white" : "bg-white shadow"
+          }`}
+        >
+          Open Now
+        </button>
 
-                {/* Top */}
-                <div className="flex items-center justify-between">
-                  <h2 className="text-xl font-bold text-gray-800">
-                    {item.name}
-                  </h2>
+        <button
+          onClick={() => setFilter("top")}
+          className={`px-5 py-2 rounded-full ${
+            filter === "top" ? "bg-blue-600 text-white" : "bg-white shadow"
+          }`}
+        >
+          Top Rated
+        </button>
 
-                  <div className="flex items-center gap-1 text-yellow-500">
-                    <Star size={18} fill="currentColor" />
+      </div>
 
-                    <span className="font-semibold text-gray-700">
-                      {item.rating}
-                    </span>
-                  </div>
-                </div>
+      {/* CARDS */}
+      <div className="max-w-7xl mx-auto px-4 pb-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                {/* Distance */}
-                <div className="mt-4 flex items-center gap-2 text-gray-500">
-                  <MapPin size={18} />
-                  <span>{item.distance} Away</span>
-                </div>
+        {filteredLabs.map((item) => (
+          <div
+            key={item.id}
+            className="bg-white rounded-2xl shadow hover:shadow-xl transition"
+          >
 
-                {/* Timing */}
-                <div className="mt-2 flex items-center gap-2 text-gray-500">
-                  <Clock3 size={18} />
-                  <span>{item.timing}</span>
-                </div>
+            <img
+              src={item.image}
+              className="w-full h-48 object-cover rounded-t-2xl"
+            />
 
-                {/* Home Sampling */}
-                {item.homeSample && (
-                  <div className="mt-4 flex items-center gap-2 text-green-600 font-semibold">
-                    <Home size={18} />
-                    Home Sample Available
-                  </div>
-                )}
+            <div className="p-5">
 
-                {/* Reports */}
-                {item.reports && (
-                  <div className="mt-2 flex items-center gap-2 text-blue-600 font-semibold">
-                    <CheckCircle size={18} />
-                    Online Reports Available
-                  </div>
-                )}
+              <h2 className="text-lg font-bold">{item.name}</h2>
 
-                {/* Buttons */}
-                <div className="mt-6 flex gap-3">
+              <p className="flex items-center gap-2 text-gray-500 mt-2">
+                <MapPin size={16} /> {item.distance} KM
+              </p>
 
-                  <button className="flex-1 border border-blue-600 text-blue-600 hover:bg-blue-50 py-3 rounded-xl font-semibold transition">
-                    <FlaskConical size={18} className="inline mr-2" />
-                    Tests
-                  </button>
+              <p className="flex items-center gap-2 text-gray-500 mt-1">
+                <Clock3 size={16} /> {item.timing}
+              </p>
 
-                  <button
-                    onClick={() => handleBooking(item.name)}
-                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition"
-                  >
-                    <CalendarDays size={18} />
-                    Book
-                  </button>
+              <p className="flex items-center gap-2 mt-2">
+                <Star size={16} className="text-yellow-500" />
+                {item.rating}
+              </p>
 
-                </div>
-              </div>
+              {item.homeSample && (
+                <p className="text-green-600 flex items-center gap-2 mt-2">
+                  <Home size={16} /> Home Sample
+                </p>
+              )}
+
+              {item.reports && (
+                <p className="text-blue-600 flex items-center gap-2 mt-1">
+                  <CheckCircle size={16} /> Reports Available
+                </p>
+              )}
+
+              <button
+                onClick={() => handleBooking(item.name)}
+                className="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl"
+              >
+                Book Test
+              </button>
+
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+
       </div>
 
-      {/*  Bottom CTA */}
-      <div className="bg-blue-600 text-white py-14 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Book Your Lab Test Today
-          </h2>
-
-          <p className="mt-4 text-cyan-100 text-lg">
-            Upload prescriptions and get fast diagnostic services
-            from trusted labs near your location.
-          </p>
-
-          <button className="mt-8 bg-white text-cyan-600 hover:bg-gray-100 px-8 py-4 rounded-2xl font-bold transition">
-            Upload Prescription
-          </button>
-
-        </div>
-      </div>
     </div>
   );
 };
