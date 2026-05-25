@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
 import { FiPlus, FiMinus } from "react-icons/fi";
 
-import app1 from  '../../assets/app1.svg';
-import app2 from  '../../assets/app2.svg';
-import app3 from  '../../assets/app3.webp';
+import app1 from "../../assets/app1.svg";
+import app2 from "../../assets/app2.svg";
+import app3 from "../../assets/app3.webp";
 
 const accordionData = [
   {
@@ -43,44 +43,43 @@ const Quries = () => {
   };
 
   return (
-    <div>
-      <div className="py-10 px-6  md:px-12 lg:px-40">
-        {/* 🔹 Heading */}
+    <div className="w-full">
+      <div className="py-10 px-4 sm:px-6 md:px-12 lg:px-40">
+
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center space-y-6"
+          className="text-center space-y-4"
         >
-          <div className="mt-10">
-            <Button>• FAQs •</Button>
-          </div>
+          <Button>• FAQs •</Button>
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug">
             Your Questions are{" "}
             <span className="text-blue-400">Answered</span>
           </h1>
         </motion.div>
 
-        {/* 🔹 Accordion */}
-        <div className="max-w-2xl mx-auto space-y-6 mt-10">
+        {/* Accordion */}
+        <div className="max-w-2xl mx-auto space-y-4 sm:space-y-6 mt-10">
           {accordionData.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.4 }}
               viewport={{ once: true }}
-              className="border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+              className="border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition"
             >
               {/* Header */}
               <button
                 onClick={() => toggleAccordion(index)}
-                className="w-full flex justify-between items-center px-8 py-4 text-gray-700 text-md font-medium text-left hover:bg-gray-50 transition"
+                className="w-full flex justify-between items-center px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-gray-700 text-sm sm:text-base font-medium text-left hover:bg-gray-50 transition"
               >
                 <span>{item.title}</span>
-                <span className="text-lg font-medium cursor-pointer">
+                <span className="text-lg">
                   {activeIndex === index ? <FiMinus /> : <FiPlus />}
                 </span>
               </button>
@@ -89,13 +88,13 @@ const Quries = () => {
               <AnimatePresence>
                 {activeIndex === index && (
                   <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="bg-gray-100"
+                    className="bg-gray-100 overflow-hidden"
                   >
-                    <div className="p-4 text-gray-700 text-sm sm:text-base">
+                    <div className="p-3 sm:p-4 text-gray-700 text-sm sm:text-base">
                       {item.content}
                     </div>
                   </motion.div>
@@ -105,44 +104,42 @@ const Quries = () => {
           ))}
         </div>
 
-        {/* 🔹 App Download Section */}
-        <div className="p-6 md:p-8 rounded-2xl mt-16 bg-blue-500">
+        {/* App Section */}
+        <div className="mt-14 sm:mt-16 md:mt-20 bg-blue-500 rounded-2xl p-5 sm:p-8 md:p-10">
           <div className="flex flex-col md:flex-row items-center gap-8">
-            
+
             {/* LEFT */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
               className="flex-1 text-center md:text-left text-white"
             >
-              <p className="text-sm sm:text-base font-medium">
+              <p className="text-sm sm:text-base">
                 Working For Your Better Health
               </p>
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold mt-2">
-                Download the Doccure App <br/> Today!
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mt-2 leading-snug">
+                Download the Doccure App Today!
               </h1>
 
-              {/* Store Buttons */}
-              <div className="flex justify-center md:justify-start gap-4 mt-8 flex-wrap">
+              {/* Buttons */}
+              <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4 mt-6 sm:mt-8">
                 <img
                   src={app1}
-                  alt="App Store"
-                  className="h-10 sm:h-12 object-contain cursor-pointer hover:scale-105 transition"
+                  className="h-10 sm:h-12 cursor-pointer hover:scale-105 transition"
                 />
                 <img
                   src={app2}
-                  alt="Play Store"
-                  className="h-10 sm:h-12 object-contain cursor-pointer hover:scale-105 transition"
+                  className="h-10 sm:h-12 cursor-pointer hover:scale-105 transition"
                 />
               </div>
             </motion.div>
 
             {/* RIGHT */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
@@ -150,8 +147,8 @@ const Quries = () => {
             >
               <img
                 src={app3}
-                alt="App Preview"
-                className="w-60 sm:w-72 md:w-80 lg:w-150 object-contain"
+                alt="app"
+                className="w-48 sm:w-64 md:w-72 lg:w-100 object-contain"
               />
             </motion.div>
 
