@@ -28,6 +28,9 @@ import DoctorProfile from './pages/DoctorProfile'
 import Doctors from './pages/Doctors'
 import HomeCare from './pages/HomeCare'
 import ScrollProgress from './components/common/ScrollProgress'
+import HospitalRegister from './pages/Auth/HospitalRegister'
+import LabRegister from './pages/Auth/LabRegister'
+import PharmacyRegister from './pages/Auth/PharmacyRegister'
 
 
 const App = () => {
@@ -43,6 +46,9 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/PatientRegister" element={<PatientRegister />} />
         <Route path="/DoctorRegister" element={<DoctorRegister />} />
+        <Route path='/hospitalregister' element={<HospitalRegister />} />
+        <Route path='/labregister' element={<LabRegister />} />
+        <Route path='/pharmacyregister' element={<PharmacyRegister />} />
         <Route path='/patientdashboard' element={<PatientDashboard />} />
         <Route path='/doctordashboard' element={<DoctorDashboard />} />
         <Route path='/about' element={<AboutUs />} />

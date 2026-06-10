@@ -50,7 +50,9 @@ const Navbar = () => {
          { name: "Signup", path: "/signup" },
           { name: "Doctor Register", path: "/doctorregister" },
           { name: "Patient Register", path: "/patientregister" },
-
+          {name: "Hospital Register", path: "/hospitalregister" },
+          {name: 'Lab Register', path: "/labregister" },
+          {name: 'Pharmacy Register', path: "/pharmacyregister" },
 
       ],
     },
