@@ -12,9 +12,9 @@ const Navbar = () => {
 
     {
       name: "Doctors",
-      path: '/doctors',
+      path: '',
       subMenu: [
-        { name: "Doctor Details", path: "/doctor-details" },
+        { name: "All Doctor ", path: "/doctors" },
         { name: "Doctor Dashboard", path: "/doctordashboard" },
         { name: "Appointments", path: "/appointments" },
 
@@ -23,10 +23,10 @@ const Navbar = () => {
 
     {
       name: "Patients",
-      path: '/patients',
+      path: '',
       subMenu: [
         { name: "Patient Dashboard", path: "/patientdashboard" },
-        { name: "Patient Profile", path: "/patient-profile" },
+        { name: " All Patient ", path: 'patients' },
         { name: "Book Appointment", path: "/book-appointment" },
       ],
     },
@@ -50,13 +50,16 @@ const Navbar = () => {
          { name: "Signup", path: "/signup" },
           { name: "Doctor Register", path: "/doctorregister" },
           { name: "Patient Register", path: "/patientregister" },
-
+          {name: "Hospital Register", path: "/hospitalregister" },
+          {name: 'Lab Register', path: "/labregister" },
+          {name: 'Pharmacy Register', path: "/pharmacyregister" },
 
       ],
     },
 
     { name: "Blog", path: '/blogs' },
-    { name: "Admin", path: '"/admin/*" ' },
+    { name: "Contact Us", path: "/contact" },
+    { name: "Admin", path: "/admin" },
   ];
   const [isOpen, setIsOpen] = useState(false);
 
@@ -66,7 +69,9 @@ const Navbar = () => {
 
         <div className="flex items-center justify-between h-15">
           {/* logo */}
+            <Link to="/">
           <img src={logo} alt="Company Logo" className="h-10 w-auto" />
+          </Link>
           {/* 🔹 Desktop Menu */}
           <ul className="hidden lg:flex items-center gap-6">
             {Menu.map((item, index) => (

@@ -1,33 +1,32 @@
 import React, { useState } from "react";
 import { Plus, Minus, Smile } from "lucide-react";
-import { motion } from "motion/react"
+import { motion } from "motion/react";
 
 const faqData = [
   {
     question: "How do I book an appointment?",
     answer:
-      "Yes, simply visit our website and log in or create an account. Search for a doctor based on specialization, location, or availability & confirm your booking.",
+      "Visit our website, search doctor, and book appointment easily in few clicks.",
   },
   {
-    question:
-      "Can i make an Appointment Online?",
+    question: "Can I make an Appointment Online?",
     answer:
       "Yes, you can easily make appointments online through our platform.",
   },
   {
     question: "Is my personal information secure?",
     answer:
-      "Your personal information is protected with advanced security measures.",
+      "Your data is protected with advanced encryption and security systems.",
   },
   {
     question: "Can I cancel or reschedule my appointment?",
     answer:
-      "Yes, appointments can be cancelled or rescheduled anytime.",
+      "Yes, you can cancel or reschedule anytime from your dashboard.",
   },
   {
-    question: "How do I find a specific doctor or specialist?",
+    question: "How do I find a specific doctor?",
     answer:
-      "Use our doctor search feature to find specialists easily.",
+      "Use search filters like specialty, location, or availability.",
   },
 ];
 
@@ -39,99 +38,93 @@ export default function FAQSection() {
   };
 
   return (
-    <div className="bg-white py-20 px-4">
+    <div className="bg-white py-14 px-4 sm:px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <p className="text-blue-600 font-semibold mb-2">
             Get Your Answer
           </p>
 
-          <h2 className=" text-[#0b1c39] text-3xl md:text-4xl font-semibold">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#0b1c39]">
             Frequently Asked Questions
           </h2>
         </div>
 
-        {/* Main Layout */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
-          {/* Left Image Section */}
+          {/* LEFT IMAGE */}
           <motion.div
-            initial={{ opacity: 0, x: -80 }}
+            initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative w-full"
           >
-
-
-            {/* Border Boxes */}
-            <div className="absolute -top-6.25 left-8 w-full h-full border border-gray-200"></div>
-            <div className="absolute -top-3 left-4 w-full h-full border border-gray-200"></div>
-
             {/* Image */}
-            <div className="relative z-10 overflow-hidden">
+            <div className="rounded-2xl overflow-hidden">
               <img
                 src="https://img.freepik.com/free-photo/female-doctor-with-patient-clinic_23-2148827779.jpg"
                 alt="faq"
-                className="w-full h-130 object-cover"
+                className="w-full h-64 sm:h-80 md:h-96 lg:h-105 object-cover"
               />
             </div>
 
             {/* Floating Card */}
-            <div className="absolute -bottom-7.5 left-1/2 -translate-x-1/2 bg-white shadow-xl rounded-2xl px-8 py-4 flex items-center gap-4 z-20">
+            <div className="absolute left-1/2 -bottom-4 -translate-x-1/2 bg-white shadow-xl rounded-2xl px-5 sm:px-8 py-3 sm:py-4 flex items-center gap-3 sm:gap-4 w-[90%] sm:w-auto">
 
-              <div className="w-14 h-14 rounded-full bg-yellow-100 flex items-center justify-center">
-                <Smile size={32} className="text-yellow-500" />
+              <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-yellow-100 flex items-center justify-center">
+                <Smile size={26} className="text-yellow-500" />
               </div>
 
               <div>
-                <h3 className="text-3xl font-bold text-[#0b1c39]">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#0b1c39]">
                   95k+
                 </h3>
-
-                <p className="text-gray-500 font-medium">
+                <p className="text-gray-500 text-sm sm:text-base">
                   Happy Patients
                 </p>
               </div>
             </div>
           </motion.div>
 
-          {/* FAQ Section */}
-          <motion.div initial={{ opacity: 0, x: 80 }}
+          {/* RIGHT FAQ */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="space-y-5">
+            className="space-y-4 sm:space-y-5"
+          >
             {faqData.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white shadow-lg border border-gray-200 rounded-xl overflow-hidden"
+                className="border border-gray-200 rounded-xl overflow-hidden shadow-sm"
               >
-
                 {/* Question */}
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full flex items-center justify-between px-6 py-5 text-left"
+                  className="w-full flex justify-between items-center px-4 sm:px-6 py-4 sm:py-5 text-left"
                 >
-                  <span className="font-semibold text-[#0b1c39] text-lg">
+                  <span className="font-semibold text-[#0b1c39] text-sm sm:text-lg pr-3">
                     {faq.question}
                   </span>
 
-                  <div className="w-9 h-9 rounded-md bg-blue-600 text-white flex items-center justify-center">
+                  <div className="w-8 sm:w-9 h-8 sm:h-9 bg-blue-600 text-white flex items-center justify-center rounded-md shrink-0">
                     {openIndex === index ? (
-                      <Minus size={18} className="cursor-pointer" />
+                      <Minus size={18} />
                     ) : (
-                      <Plus size={18} className="cursor-pointer" />
+                      <Plus size={18} />
                     )}
                   </div>
                 </button>
 
                 {/* Answer */}
                 {openIndex === index && (
-                  <div className="px-6 pb-6 text-gray-600 leading-8">
-                    <div className="border-t border-gray-300 pt-5">
+                  <div className="px-4 sm:px-6 pb-5 text-gray-600 text-sm sm:text-base leading-6 sm:leading-7">
+                    <div className="border-t pt-4 border-gray-200">
                       {faq.answer}
                     </div>
                   </div>
@@ -139,6 +132,7 @@ export default function FAQSection() {
               </div>
             ))}
           </motion.div>
+
         </div>
       </div>
     </div>

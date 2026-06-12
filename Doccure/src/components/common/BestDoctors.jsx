@@ -1,6 +1,6 @@
 import React from "react";
 import { MapPin, Star } from "lucide-react";
-import { motion } from "motion/react"
+import { motion } from "motion/react";
 
 const doctors = [
   {
@@ -55,51 +55,49 @@ const doctors = [
 
 export default function BestDoctors() {
   return (
-    <div className="bg-white min-h-screen py-20 px-4">
+    <div className="bg-white py-16 px-4 sm:px-6 lg:px-10">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
-        <div className="text-center mb-14">
-          <h2 className="text-5xl md:text-4xl font-semibold">
+        <div className="text-center mb-10 sm:mb-14">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold">
             Best Doctors
           </h2>
         </div>
 
-        {/* Doctors Grid */}
+        {/* Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 80 }}
+          initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-
-
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-7"
+        >
           {doctors.map((doctor) => (
             <div
               key={doctor.id}
-              className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition duration-300"
+              className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition"
             >
               {/* Image */}
               <div className="relative">
                 <img
                   src={doctor.image}
                   alt={doctor.name}
-                  className="w-full h-65 object-cover"
+                  className="w-full h-52 sm:h-60 object-cover"
                 />
 
-                {/* Price */}
-                <div className="absolute top-4 right-4 bg-white text-[#0b1c39] font-semibold text-sm px-4 py-2 rounded-xl shadow">
+                <div className="absolute top-3 right-3 bg-white text-[#0b1c39] font-semibold text-xs sm:text-sm px-3 py-1 rounded-xl shadow">
                   {doctor.price}
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-5">
+              <div className="p-4 sm:p-5">
 
                 {/* Name + Rating */}
-                <div className="flex items-start justify-between gap-3">
+                <div className="flex justify-between gap-3">
                   <div>
-                    <h3 className="text-[22px] font-bold text-[#0b1c39]">
+                    <h3 className="text-lg sm:text-xl font-bold text-[#0b1c39]">
                       {doctor.name}
                     </h3>
 
@@ -108,8 +106,7 @@ export default function BestDoctors() {
                     </p>
                   </div>
 
-                  {/* Rating */}
-                  <div className="bg-yellow-400 flex items-center gap-1 px-2 py-1 rounded-md text-xs font-semibold">
+                  <div className="bg-yellow-400 flex items-center gap-1 px-2 py-1 rounded-md text-xs font-semibold h-fit">
                     <Star size={12} fill="white" color="white" />
                     {doctor.rating}
                     <span className="text-[10px] text-gray-700">
@@ -119,10 +116,10 @@ export default function BestDoctors() {
                 </div>
 
                 {/* Divider */}
-                <div className="border-t border-gray-200 my-5"></div>
+                <div className="border-t border-gray-200 my-4 sm:my-5"></div>
 
                 {/* Bottom */}
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0">
 
                   {/* Location */}
                   <div className="flex items-center gap-2 text-gray-500 text-sm">
@@ -132,18 +129,21 @@ export default function BestDoctors() {
 
                   {/* Status */}
                   <div
-                    className={`px-3 py-1 rounded-full text-xs font-medium ${doctor.status === "Available"
-                      ? "bg-green-100 text-green-600"
-                      : "bg-red-100 text-red-500"
-                      }`}
+                    className={`px-3 py-1 rounded-full text-xs font-medium w-fit ${
+                      doctor.status === "Available"
+                        ? "bg-green-100 text-green-600"
+                        : "bg-red-100 text-red-500"
+                    }`}
                   >
                     {doctor.status}
                   </div>
                 </div>
+
               </div>
             </div>
           ))}
         </motion.div>
+
       </div>
     </div>
   );

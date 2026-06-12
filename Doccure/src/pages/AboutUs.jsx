@@ -1,15 +1,13 @@
 import React from "react";
-import {
-  FaPhoneAlt,
-} from "react-icons/fa";
-import { Link } from 'react-router-dom'
-import { FaHome } from "react-icons/fa";
+import { FaPhoneAlt, FaHome } from "react-icons/fa";
 import { RiArrowRightDoubleLine } from "react-icons/ri";
-import { motion } from "motion/react"
+import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 
 import doc01 from "../assets/doc01.webp";
 import doc02 from "../assets/doc02.jpg";
 import doc03 from "../assets/doc03.webp";
+
 import ChooseUs from "../components/common/ChooseUs";
 import BestDoctors from "../components/common/BestDoctors";
 import FAQSection from "../components/common/FAQSection";
@@ -19,127 +17,115 @@ const AboutUs = () => {
   return (
     <div className="bg-[#f9fbff] min-h-screen">
 
-      {/* 🔹 Hero Section */}
-      <div className='bg-blue-100 py-10'>
-        <div className='flex gap-2 justify-center items-center'>
-          <Link to={'/'}>
-            <span className='text-blue-400 text-2xl'><FaHome /></span>
+      {/* HERO */}
+      <div className="bg-blue-100 py-8 sm:py-10 px-4">
+        <div className="flex flex-wrap gap-2 justify-center items-center text-center">
+
+          <Link to="/">
+            <FaHome className="text-blue-500 text-xl sm:text-2xl" />
           </Link>
-          <span className='text-2xl text-gray-600'><RiArrowRightDoubleLine /></span>
-          <h2 className='text-gray-600 font-medium'>About Us</h2>
 
+          <RiArrowRightDoubleLine className="text-gray-500 text-lg sm:text-2xl" />
+
+          <h2 className="text-gray-600 font-medium text-sm sm:text-base">
+            About Us
+          </h2>
         </div>
 
-        <div className='text-center mt-4'>
-          <h1 className='text-3xl font-semibold'>About Us</h1>
-        </div>
+        <h1 className="text-center mt-3 text-2xl sm:text-3xl font-semibold">
+          About Us
+        </h1>
       </div>
 
-      {/* 🔹 About Section */}
-      <div className="py-14 px-4 md:px-8 xl:px-20 2xl:px-32">
+      {/* MAIN SECTION */}
+      <div className="py-10 sm:py-14 px-4 sm:px-6 lg:px-10 xl:px-20 2xl:px-32">
 
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
-          {/* LEFT SIDE IMAGES */}
+          {/* LEFT IMAGES */}
           <motion.div
-            initial={{ opacity: 0, x: -80 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 gap-5"
+            className="grid grid-cols-2 gap-3 sm:gap-5"
           >
 
-            {/* Left Column */}
-            <div className="flex flex-col gap-5">
+            {/* LEFT COLUMN */}
+            <div className="flex flex-col gap-3 sm:gap-5">
 
               <img
                 src={doc01}
-                alt="doctor"
-                className="rounded-2xl object-cover h-80 w-full"
+                className="rounded-xl sm:rounded-2xl w-full h-40 sm:h-64 lg:h-80 object-cover"
+                alt=""
               />
 
               <img
                 src={doc02}
-                alt="doctor"
-                className="rounded-2xl object-cover h-42.5 w-full"
+                className="rounded-xl sm:rounded-2xl w-full h-28 sm:h-40 lg:h-48 object-cover"
+                alt=""
               />
 
             </div>
 
-            {/* Right Column */}
-            <div className="flex flex-col gap-5 pt-8">
+            {/* RIGHT COLUMN */}
+            <div className="flex flex-col gap-3 sm:gap-5 pt-4 sm:pt-8">
 
-              {/* Experience Card */}
-              <div className="bg-blue-600 rounded-2xl h-35 flex items-center justify-center text-center p-6">
+              <div className="bg-blue-600 rounded-xl sm:rounded-2xl h-24 sm:h-36 flex items-center justify-center text-center p-3 sm:p-6">
 
-                <h2 className="text-white text-2xl font-bold leading-relaxed">
-                  Over 25+ Years <br />
-                  Experience
+                <h2 className="text-white text-sm sm:text-xl lg:text-2xl font-bold leading-snug">
+                  Over 25+ Years <br /> Experience
                 </h2>
 
               </div>
 
               <img
                 src={doc03}
-                alt="doctor"
-                className="rounded-2xl object-cover h-70 w-full"
+                className="rounded-xl sm:rounded-2xl w-full h-40 sm:h-60 lg:h-72 object-cover"
+                alt=""
               />
 
             </div>
 
           </motion.div>
 
-          {/* RIGHT SIDE CONTENT */}
+          {/* RIGHT CONTENT */}
           <motion.div
-            initial={{ opacity: 0, x: 80 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-
           >
 
-            <p className="text-blue-500 font-medium mb-2">
+            <p className="text-blue-500 font-medium text-sm sm:text-base">
               About Our Company
             </p>
 
-            <h2 className="text-3xl md:text-4xl font-semibold  leading-tight text-gray-900 mb-6">
-
+            <h2 className="text-xl sm:text-3xl lg:text-4xl font-semibold leading-snug text-gray-900 mt-2 mb-5">
               We Are Always Ensure Best Medical Treatment For Your Health
-
             </h2>
 
-            <p className="text-gray-500 text-md leading-8 mb-5">
-
-              At Doccure, we understand the importance of accessible and
-              convenient healthcare. Our mission is to simplify the process
-              of finding and booking appointments with qualified healthcare
-              professionals, ensuring that you receive the care you need
-              when you need it.
-
+            <p className="text-gray-500 text-sm sm:text-base leading-6 sm:leading-8 mb-4">
+              At Doccure, we simplify healthcare by connecting you with qualified doctors easily and quickly.
             </p>
 
-            <p className="text-gray-500 leading-8 mb-8">
-
-              We envision a world where healthcare is easily accessible
-              to everyone. Whether you're seeking routine check-ups,
-              specialized consultations, or emergency care, we strive to
-              connect you with the right medical professionals effortlessly.
-
+            <p className="text-gray-500 text-sm sm:text-base leading-6 sm:leading-8 mb-6">
+              We aim to make healthcare accessible for everyone — from checkups to emergency care.
             </p>
 
-            {/* Emergency */}
-            <div className="flex items-center gap-4">
+            {/* CONTACT */}
+            <div className="flex items-center gap-3 sm:gap-4">
 
-              <div className="bg-blue-600 text-white p-4 rounded-full">
-                <FaPhoneAlt />
+              <div className="bg-blue-600 text-white p-3 sm:p-4 rounded-full">
+                <FaPhoneAlt size={16} />
               </div>
 
               <div>
-                <p className="text-gray-500 text-sm">
+                <p className="text-gray-500 text-xs sm:text-sm">
                   Need Emergency?
                 </p>
 
-                <h3 className="text-2xl font-bold text-gray-900">
+                <h3 className="text-lg sm:text-2xl font-bold text-gray-900">
                   +1 315 369 5943
                 </h3>
               </div>
@@ -151,18 +137,17 @@ const AboutUs = () => {
         </div>
 
       </div>
-      <div>
+
+      {/* SECTIONS */}
+      <div className="space-y-10 sm:space-y-14">
+
         <ChooseUs />
-      </div>
-      <div>
         <BestDoctors />
-      </div>
-      <div>
         <Testimon />
-      </div>
-      <div>
         <FAQSection />
+
       </div>
+
     </div>
   );
 };
